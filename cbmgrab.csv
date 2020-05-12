@@ -1,0 +1,511 @@
+Site_Code,Site_Name,Region,Latitude,Longitude,Date,pH,Turbidity,Specific_Conductance,Temperature,DO
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,6/13/2012,8.006666667,1663.333333,252.3333333,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,6/13/2012,8.046666667,51.86666667,288,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,7/17/2012,8.26,35.1,298,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,7/17/2012,8.05,2.04,188,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,7/17/2012,7.99,93,351,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,7/17/2012,8.5,4.55,239,20.25,NA
+NW-MR-MID,Norman Wells at Mackenzie River / Mid Channel,Sahtu,65.2611,-126.8172,7/17/2012,8.1,93.4,279,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,7/19/2012,8.22,23.9,292,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,7/19/2012,8.155,10.14,412.5,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,7/19/2012,7.92,136,260,0.11,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,7/25/2012,8.26,0.78,688,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,7/26/2012,8.1,30.2,288,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,8/13/2012,8.01,31,228,6.045,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,8/14/2012,7.77,683,351,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,8/15/2012,8.18,3.64,394,20.65,NA
+NW-MR-MID,Norman Wells at Mackenzie River / Mid Channel,Sahtu,65.2611,-126.8172,8/15/2012,8.12,118,290,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,8/15/2012,8.01,78.4,473,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,8/15/2012,8,0.65,141,18.3,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,8/15/2012,8.06,18.6,317,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,8/17/2012,8.04,3.6,185,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,8/17/2012,8.486666667,7.796666667,239,NA,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,8/17/2012,8.02,1.67,215,11.9,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,8/17/2012,7.95,1.76,183,12.7,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,8/17/2012,8.06,52.1,342,18.59,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,8/17/2012,7.98,250,442,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,8/21/2012,8,160,270,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,8/23/2012,7.92,0.985,133.5,NA,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,9/2/2012,7.93,93.2,445,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,9/2/2012,8.09,3.71,619,NA,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,9/5/2012,7.94,119,283,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,9/5/2012,8.01,2.91,203,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,9/13/2012,8.03,73.4,430,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,9/13/2012,8.13,6.15,251,15.4,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,9/13/2012,7.9,376,138,NA,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,9/13/2012,7.46,1.84,57.2,13.4,NA
+NW-MR-MID,Norman Wells at Mackenzie River / Mid Channel,Sahtu,65.2611,-126.8172,9/17/2012,8.16,1.39,731,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,9/17/2012,8.25,36.9,287,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,9/17/2012,8.08,104,301,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,9/17/2012,7.97,0.53,140,17.69,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,9/17/2012,8.16,10.5,385,20.54,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,9/18/2012,7.98,36.3,236,4.536,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,9/18/2012,8.07,31.9,202,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,9/19/2012,8.06,1.68,842,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,9/25/2012,7.22,86.7,999,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,9/26/2012,7.6,8000,535,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,9/26/2012,7.85,92.98,381.6666667,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,10/22/2012,8.033333333,66.26666667,304.6666667,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,10/23/2012,7.9,2.99,146,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,5/5/2013,8.12,60.4,396,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,6/12/2013,8.19,11.3,258,8.9,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,6/12/2013,6.98,335,165,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,6/19/2013,8.07,248,374,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,6/20/2013,8.26,1.23,641,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,6/20/2013,7.94,194,443,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,6/23/2013,8.1,74.2,575,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,6/27/2013,8.02,142,237,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,6/27/2013,8.1,1,162,NA,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,6/27/2013,7.91,1.07,138,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,7/1/2013,8.19,40.1,421,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,7/3/2013,7.87,0.64,139,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,7/4/2013,8.21,14.4,384,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,7/6/2013,NA,NA,NA,21,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,7/6/2013,8.25,27.2,217,21.438,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,7/7/2013,8.33,1.67,642,NA,NA
+TUL-LBR,Tulita at Little Bear River / Mouth,Sahtu,64.9186,-125.9008,7/7/2013,8.01,458,386,18.6,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,7/7/2013,NA,NA,NA,16.45,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,7/7/2013,8.04,1.19,162,11.262,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,7/9/2013,8.12,20,191,18.6,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,7/9/2013,8.08,117,297,10.13,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,7/10/2013,8.06,172.3333333,277.3333333,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,7/12/2013,8.01,215,220,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,7/12/2013,7.99,1.41,165,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,7/12/2013,8.15,5.37,225,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,7/21/2013,8.02,61.1,305,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,7/21/2013,8.005,13.85,358,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,7/22/2013,8.11,44.6,268,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,7/28/2013,8.03,153,265,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,7/28/2013,8.08,192,196,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,7/28/2013,8.33,13.6,289,NA,NA
+NW-MR-MID,Norman Wells at Mackenzie River / Mid Channel,Sahtu,65.2611,-126.8172,7/29/2013,8.15,35,353,14.74,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,7/29/2013,8.29,0.79,630,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream of Imperial Island 1,Sahtu,65.2759,-126.8723,7/29/2013,NA,NA,NA,17.4,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,7/29/2013,8.11,49.2,271,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,7/29/2013,8.21,4.12,221,NA,NA
+NW-IMP1-U/S,Norman Wells at Mackenzie River / Downstream of Imperial Island 1,Sahtu,65.2759,-126.8723,7/29/2013,7.46,69.7,185,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,7/30/2013,8,10.9,224,NA,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,7/30/2013,8.24,138,300,17.948,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,7/30/2013,8.33,2.44,644,NA,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,7/30/2013,8.17,187,275,19.57,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,7/30/2013,8.02,2.76,224,22.55,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,7/31/2013,8.13,832,454,NA,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,7/31/2013,7.76,3.37,132,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,8/1/2013,8.18,12.3,384,NA,NA
+FGH-JFL,Fort Good Hope at Jackfish Lake,Sahtu,66.3041,-128.4216,8/1/2013,8.03,22.2,232,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,8/1/2013,8.11,0.5,144,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,8/5/2013,8.24,1.42,634,NA,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,8/11/2013,7.87,15.4,505,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,8/11/2013,8.05,247,266,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,8/11/2013,8.01,176,287,NA,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,8/11/2013,8.18,7.84,234,10.72,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,8/11/2013,8.14,57.6,268,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,8/11/2013,8.13,99.4,249,13.4,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,8/11/2013,NA,NA,NA,5.493,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,8/14/2013,8.06,30.2,220,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,8/14/2013,8.15,13.3,244,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,8/14/2013,NA,NA,NA,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,8/21/2013,7.14,2.93,60,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,8/22/2013,8.09,64.3,220,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,8/22/2013,8.19,1150,278,NA,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,8/26/2013,8.12,68.8,277,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,8/27/2013,7.82,1120,344,11.2,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,8/27/2013,8.33,4.52,227,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,8/27/2013,7.97,67.4,169,17.05,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream of Imperial Island 1,Sahtu,65.2759,-126.8723,8/27/2013,8.06,457,279,16.39,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,8/27/2013,8.12,166,288,NA,NA
+NW-IMP1-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,8/27/2013,8.12,36,659,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,8/27/2013,8.16,0.95,849,NA,NA
+NW-MR-MID,Norman Wells at Mackenzie River / Mid Channel,Sahtu,65.2611,-126.8172,8/27/2013,8.34,3.86,228,19.36,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,8/27/2013,NA,NA,NA,17.96,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,8/27/2013,7.99,3.166666667,225.6666667,NA,NA
+TUL-LBR,Tulita at Little Bear River / Mouth,Sahtu,64.9186,-125.9008,8/27/2013,8.15,101,294,21.08,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,8/27/2013,8.24,2.04,214,14.209,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,8/27/2013,8.23,74.8,304,18.29,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,8/27/2013,8.29,1.49,218,14.9,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,8/28/2013,7.98,180,457,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,8/29/2013,8.22,88.4,306,NA,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,8/29/2013,7.84,1.11,134,NA,NA
+FGH-JFL,Fort Good Hope at Jackfish Lake,Sahtu,66.3041,-128.4216,8/29/2013,7.49,2.46,58.3,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,8/29/2013,8.24,26.3,296,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,9/3/2013,7.54,2470,386,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,9/5/2013,8.01,0.44,142,15.69,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,9/5/2013,7.85,289,469,5.6,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,9/8/2013,8.1,14.3,238.5,13.056,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,9/8/2013,7.956666667,32.06666667,212,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,9/8/2013,8.14,47.3,263,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,9/8/2013,8.04,185,258,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,9/8/2013,8.23,19,294,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,9/10/2013,8.05,44.4,239,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,9/11/2013,8.03,117,307,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,9/11/2013,8.11,35.9,270,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,9/15/2013,7.873333333,3.083333333,136.6666667,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,6/2/2014,8.11,44.55,NA,NA,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,6/10/2014,8.063333333,79,430.6666667,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,6/10/2014,8.06,0.99,211,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,6/18/2014,7.79,1230,561,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,6/18/2014,8.28,12.8,239,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,6/19/2014,8.13,52.7,297,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,6/19/2014,8.11,37.4,270,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,6/23/2014,7.94,315,402,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,6/24/2014,NA,NA,270,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,6/25/2014,7.97,48.5,231,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,6/25/2014,8.3,1.41,678,NA,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,6/25/2014,7.99,0.94,136,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,6/25/2014,8.12,58.7,306,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,6/26/2014,8.14,71.2,277,NA,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,7/5/2014,8.17,1.74,642,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,7/6/2014,8.11,199,290,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,7/6/2014,8.25,1.45,212,13.9,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,7/6/2014,NA,NA,NA,18.8,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,7/6/2014,8.14,1.57,152,17.807,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,7/6/2014,7.94,1.77,97.3,16.986,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,7/7/2014,NA,NA,NA,NA,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,7/7/2014,8.23,75.1,309,18.392,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,7/7/2014,8.02,68.4,200,9,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,7/7/2014,7.73,394,303,6.897,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,7/8/2014,8.18,7.6,356,NA,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,7/8/2014,7.91,239,220,NA,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,7/9/2014,8.24,4.86,221,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,7/9/2014,8.37,49.1,251,16.8,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,7/10/2014,7.79,2.54,150,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,7/11/2014,8.27,3.38,558,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,7/15/2014,8.1,18.8,255,3.1,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,7/15/2014,8.06,0.05,345,12.1,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,7/16/2014,8.175,872.5,278.5,NA,NA
+MCP-VR,Fort McPherson at Vittrekwa River,Inuvik,67.1629,-135.0279,7/16/2014,7.89,2.51,161,NA,NA
+MCP-FC,Fort McPherson at Frog Creek / Upstream of Dempster Hyway,Inuvik,67.382,-134.1514,7/16/2014,7.86,1.05,133,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,7/16/2014,8.02,238,275,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,7/17/2014,8.14,51.7,260,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,7/18/2014,7.46,49.9,164,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,7/23/2014,8.02,8.03,243,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,7/23/2014,8.05,3.71,591,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,7/24/2014,8.08,49.8,246,NA,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,7/24/2014,7.92,1.19,157,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,7/24/2014,8.17,8,222,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,7/25/2014,8.24,5.73,385,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,7/28/2014,8.15,1.83,158,16.42,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,7/28/2014,8.27,1.77,556,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,7/28/2014,8.095,0.865,266.5,NA,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,7/29/2014,7.74,2.41,56.9,19.891,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,7/29/2014,NA,NA,NA,20.975,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,7/29/2014,8.17,36.4,272,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,7/29/2014,7.86,2.15,159,17.15,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,7/29/2014,NA,NA,56.2,17.99,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,7/29/2014,7.94,1.6,629,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,7/31/2014,8.15,52.8,224,NA,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,7/31/2014,7.96,21,231,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,7/31/2014,7.86,697,431,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,7/31/2014,8.1,87.5,394,NA,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,7/31/2014,8.26,0.31,145,NA,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,8/1/2014,8.05,2.03,304,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,8/1/2014,8.1,41.8,264,NA,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,8/12/2014,8.05,11.1,578,7.582,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,8/12/2014,7.73,369,358,6.134,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,8/12/2014,8.04,10.6,343,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,8/12/2014,7.83,3.52,134,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,8/13/2014,8.03,206,258,NA,NA
+MCP-FC,Fort McPherson at Frog Creek / Upstream of Dempster Hyway,Inuvik,67.382,-134.1514,8/13/2014,7.9,964,230,NA,NA
+MCP-VR,Fort McPherson at Vittrekwa River,Inuvik,67.1629,-135.0279,8/13/2014,8.02,57.9,293,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,8/14/2014,8.16,57.6,278,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,8/14/2014,8.06,128,529,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,8/14/2014,7.8,2.51,158,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,8/14/2014,8.29,40.3,310,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,8/14/2014,8.21,34,309,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,8/15/2014,8.12,1660,300,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,8/20/2014,7.93,322,391,12.2,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,8/21/2014,8.23,7.57,369,13.1,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,8/25/2014,8.09,49.4,253,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,8/25/2014,8.25,0.98,626,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,8/25/2014,8.08,55.7,252,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,8/25/2014,7.55,3.25,55.4,19.3,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,8/26/2014,8,107,458,NA,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,8/26/2014,8.29,47.2,428,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,8/26/2014,8.09,0.49,143,19.63,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,8/26/2014,7.645,1.815,NA,NA,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,8/26/2014,NA,NA,NA,NA,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,8/26/2014,8.26,102.945,276,17.83,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,8/28/2014,8.17,35,204,NA,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,8/28/2014,7.99,1.8,225,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,8/28/2014,8.41,4.29,235.5,NA,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,8/30/2014,7.96,1.94,305,16.47,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,8/30/2014,8.09,38.5,265,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,9/2/2014,8.14,1.85,213,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,9/4/2014,8.18,202,284,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,9/4/2014,8.01,143,371,NA,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,9/4/2014,8.07,17.4,229,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,9/5/2014,8.22,36.6,318,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,9/5/2014,7.98,271,434,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,9/5/2014,8.27,20.5,251,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,9/8/2014,8.24,2.32,557,NA,NA
+NB-U/S,Nahanni Butte at Nahanni River / Upstream,Dehcho,61.0081,-123.4667,9/9/2014,8.37,2.33,182,22.28,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,9/17/2014,8.03,2.11,141,NA,NA
+MCP-VR,Fort McPherson at Vittrekwa River,Inuvik,67.1629,-135.0279,9/18/2014,7.83,9.6,422,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,9/18/2014,8.04,252,284,NA,NA
+MCP-FC,Fort McPherson at Frog Creek / Upstream of Dempster Hyway,Inuvik,67.382,-134.1514,9/18/2014,7.93,179,336,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,9/19/2014,NA,NA,NA,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,9/19/2014,8.15,60.9,271,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,9/23/2014,7.96,102,254,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,9/23/2014,7.94,342,489,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,9/23/2014,7.96,0.92,166,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,9/24/2014,8.09,33.6,217,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,9/26/2014,7.99,1.62,213,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,10/8/2014,8.22,0.41,150,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,6/2/2015,8.04,4.71,193,12.67,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,6/2/2015,7.89,40.9,265,7.69,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,6/16/2015,7.97,0.51,136,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,6/16/2015,7.93,1.9,126,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,6/18/2015,8.19,36.8,244,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,6/18/2015,8.2,117,320,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,6/19/2015,7.87,1.43,217,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,6/24/2015,8.16,97.3,364,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,6/24/2015,8.02,10.2,292,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,6/25/2015,8.35,5.51,249,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,6/26/2015,7.92,2.3,160,NA,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,6/30/2015,8,22.8,377,8.7,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,6/30/2015,7.95,64.6,148,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,7/2/2015,8.04,9.22,234,13.24,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,7/2/2015,7.55,1.45,145,NA,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,7/3/2015,8.06,75.4,303,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,7/4/2015,7.96,24.8,474,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,7/4/2015,5.78,0.06,0.4,NA,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,7/4/2015,8.09,31,296,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,7/4/2015,8.11,0.76,269,20.17,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,7/5/2015,NA,NA,NA,19.844,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,7/5/2015,8.245,9.62,234,19.73,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,7/5/2015,7.59,51.5,896,NA,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,7/5/2015,8.06,68.7,137,15.405,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,7/5/2015,7.98,1.35,152,18.66,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,7/6/2015,8.01,131,415,NA,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,7/6/2015,8.13,2.18,203,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,7/7/2015,7.94,41.2,226,NA,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,7/7/2015,7.96,318,232,NA,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,7/9/2015,7.99,26.6,283,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,7/9/2015,7.74,2.09,119,NA,NA
+NB-U/S,Nahanni Butte at Nahanni River / Upstream,Dehcho,61.0081,-123.4667,7/9/2015,7.94,0.57,140,15.74,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,7/12/2015,7.84,648,334,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,7/12/2015,8.2,20.7,292,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,7/13/2015,7.96,0.49,140,NA,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,7/13/2015,8.11,19.5,249,11.204,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,7/14/2015,7.59,2.31,56.4,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,7/14/2015,7.98,0.48,135,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,7/14/2015,8.025,111.42,247.5,NA,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,7/15/2015,7.92,88,243,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,7/15/2015,8.01,173,410,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,7/16/2015,8.12,1.48,191,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,7/17/2015,7.91,1.55,770,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,7/17/2015,8.18,21.6,325,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,7/17/2015,8.19,98.5,221,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,7/20/2015,7.98,53.7,441,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,7/21/2015,7.86,130,133,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,7/22/2015,7.98,6.23,293,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,7/22/2015,8.13,52.9,298,NA,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,7/23/2015,8.036666667,50,244.3333333,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,7/23/2015,7.94,4.95,488,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,7/23/2015,8.26,20.5,368,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,7/30/2015,8.19,53.1,317,14.7,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,7/31/2015,7.9,139,390,6.887,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,7/31/2015,8.05,50.8,292,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,7/31/2015,8.19,0.96,607,NA,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,8/4/2015,7.99,117,362,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,8/4/2015,8.37,8.35,237,18.9,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,8/4/2015,7.55,3.07,56.1,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,8/4/2015,8.01,9.27,174,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,8/4/2015,8.08,1.23,268,19.72,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,8/5/2015,8.08,43.8,243,NA,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,8/5/2015,8.15,74.6,253,16.027,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,8/5/2015,8.16,84.3,518,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,8/5/2015,7.64,3650,356,15.25,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,8/5/2015,NA,NA,NA,20.09,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,8/5/2015,8.31,12,388,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,8/5/2015,8.06,11.3,419,NA,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,8/7/2015,8.05,0.98,132,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,8/7/2015,8.08,113,298,NA,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,8/8/2015,7.97,44.7,375,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,8/8/2015,7.97,33.5,222,NA,NA
+NB-U/S,Nahanni Butte at Nahanni River / Upstream,Dehcho,61.0081,-123.4667,8/11/2015,NA,NA,NA,18.33,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,8/12/2015,8.18,358,299,14.3,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,8/12/2015,7.99,60.2,231,NA,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,8/12/2015,7.76,4.33,180,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,8/12/2015,7.87,2099.953333,403.6666667,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,8/13/2015,7.85,0.89,160,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,8/13/2015,8.05,85.6,276,NA,NA
+MCP-VR,Fort McPherson at Vittrekwa River,Inuvik,67.1629,-135.0279,8/13/2015,7.9,209,454,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,8/13/2015,8.12,1.86,193,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,8/14/2015,8.07,59.8,260,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,8/14/2015,8.11,258,327,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,8/14/2015,8.34,5.48,240,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,8/14/2015,8.07,6.46,166,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,8/14/2015,8.27,1.22,599,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,8/17/2015,7.98,118.3333333,420.6666667,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,8/17/2015,8.02,37.1,181,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,8/19/2015,7.32,79.8,249,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,8/19/2015,7.82,2.48,94.2,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,8/20/2015,8.09,39.6,260,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,8/21/2015,8.156666667,21.93333333,231,NA,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,8/25/2015,8.17,8.305,235.5,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,8/26/2015,8.18,1.01,615,NA,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,8/28/2015,8.17,2.43,674,NA,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,9/1/2015,8.12,32.8,286,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,9/1/2015,8.01,215,253,NA,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,9/3/2015,8.08,78.3,235,19.486,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,9/3/2015,8.335,NA,385.5,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,9/3/2015,8.02,3.73,439,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,9/3/2015,8.06,74.5,277,19.55,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,9/3/2015,7.97,150,471,14.8,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,9/3/2015,8.26,1.06,848,16.101,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,9/3/2015,NA,NA,NA,10.427,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,9/4/2015,8.23,43.7,277,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,9/4/2015,8.2,4.66,241,16.6,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,9/4/2015,7.99,122,226,NA,NA
+FGH-RMPT,Fort Good Hope at Mackenzie River / Ramparts,Sahtu,66.1601,-128.9561,9/4/2015,7.76,112,198,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,9/4/2015,8.02,1.36,215,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,9/8/2015,8.04,8.54,392,NA,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,9/8/2015,8.03,22.3,255,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,9/9/2015,8.23,34.4,443,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,9/9/2015,8.08,80.7,329,21.41,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,9/9/2015,8.31,5.64,230,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,9/9/2015,8.11,1.4,249,NA,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,9/9/2015,7.87,0.61,142,NA,NA
+NB-U/S,Nahanni Butte at Nahanni River / Upstream,Dehcho,61.0081,-123.4667,9/10/2015,8.28,3.73,555,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,9/10/2015,8.26,1.1,599,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,9/10/2015,8.04,82.1,271,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,9/11/2015,8.02,0.65,135.5,NA,NA
+MCP-FC,Fort McPherson at Frog Creek / Upstream of Dempster Hyway,Inuvik,67.382,-134.1514,9/11/2015,7.5,7180,347,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,9/11/2015,8.02,52.1,387,NA,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,9/11/2015,8.15,6.78,224,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,9/15/2015,NA,61.1,NA,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,9/15/2015,7.57,2.383333333,58.13333333,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,9/15/2015,8.09,42.3,267,NA,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,9/16/2015,8.12,31.7,246,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,9/16/2015,8.09,1.94,182.5,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,9/16/2015,8.21,21.7,371,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,9/17/2015,8.21,17.7,267,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,9/17/2015,8.1,73.4,251,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,9/17/2015,8.12,31.9,305,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,10/7/2015,8.08,80.8,305,9.7,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,10/7/2015,8.053333333,21.43333333,316.6666667,11.4,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,10/7/2015,8.01,531,249,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,10/8/2015,8.44,10.4,235,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,10/8/2015,8.21,33.3,314,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,10/13/2015,NA,NA,NA,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,10/14/2015,7.81,1.04,681,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,10/15/2015,NA,25.85,268,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,10/15/2015,8.13,50.6,285.3333333,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,10/15/2015,8.365,NA,NA,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,10/16/2015,8.17,37,235,NA,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,6/6/2016,8.02,14.5,223,13.091,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,6/6/2016,7.95,12.5,177,7.6,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,6/6/2016,8.01,1.09,323,11.58,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,6/16/2016,7.38,9370,405,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,6/16/2016,8.16,55.3,215,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,6/16/2016,8.486666667,4.986666667,249.3333333,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,6/23/2016,8.05,213,217,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,6/23/2016,7.66,22.6,482,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,6/23/2016,8.16,33.2,676,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,6/28/2016,7.41,2.58,58.9,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,6/28/2016,7.96,99.3,298,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,6/30/2016,8.35,4.89,247,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,7/4/2016,8.11,22.3,207,20.11,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,7/4/2016,8.02,7.22,173,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,7/4/2016,8.11,71.4,273,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,7/5/2016,7.88,1700,460,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,7/5/2016,8.09,1.48,185,NA,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,7/5/2016,8.11,1.1,294,13.84,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,7/6/2016,7.98,13.7,238,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,7/7/2016,8.17,13,316,NA,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,7/7/2016,NA,NA,NA,NA,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,7/7/2016,8.03,20.5,218,NA,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,7/11/2016,7.89,458,225,NA,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,7/11/2016,8.09,13.8,241,NA,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,7/11/2016,7.98,1.56,322,11.23,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,7/12/2016,8.19,75.6,197,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,7/12/2016,8.22,7.11,411,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,7/13/2016,8.08,73,328,22,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,7/13/2016,7.35,2.48,56.6,NA,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,7/13/2016,8,340,266,NA,NA
+MCP-FC,Fort McPherson at Frog Creek / Upstream of Dempster Hyway,Inuvik,67.382,-134.1514,7/13/2016,7.93,93.5,244,NA,NA
+MCP-VR,Fort McPherson at Vittrekwa River,Inuvik,67.1629,-135.0279,7/13/2016,8.01,390,256,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,7/14/2016,8.12,81.6,224,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,7/15/2016,8.19,55.7,323,16.6,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,7/19/2016,8.14,217,177,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,7/19/2016,8.2,1.04,913,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,7/19/2016,8.08,1.13,363,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,7/21/2016,8.17,40.7,397,NA,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,7/21/2016,8.12,41.5,635,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,7/26/2016,NA,NA,NA,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,7/26/2016,7.98,135,300,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,7/27/2016,7.9,0.82,162,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,7/28/2016,7.95,NA,139.5,NA,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,8/2/2016,NA,10.75,NA,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,8/2/2016,7.13,260,214,NA,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,8/2/2016,8.16,135,227,19.446,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,8/2/2016,8.19,7.69,223,17.29,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,8/2/2016,7.92,393,449,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,8/2/2016,8.04,111,250,NA,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,8/2/2016,NA,NA,NA,19.708,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,8/4/2016,8.24,34.4,272,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,8/4/2016,7.68,536,432,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,8/4/2016,8.03,1.71,145,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,8/4/2016,7.62,2.03,57.5,19.4,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,8/4/2016,NA,239,NA,NA,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,8/4/2016,8.13,5.77,250,NA,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,8/4/2016,8.11,4.45,293,14.04,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,8/10/2016,7.79,3.03,121,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,8/10/2016,8.04,1.16,364,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,8/10/2016,8.01,2.1,210,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,8/10/2016,8.35,0.79,686,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,8/11/2016,8.25,5.07,228,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,8/11/2016,8.2,7.77,227,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,8/11/2016,8.26,34.6,320,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,8/11/2016,7.73,2.38,152,NA,NA
+TRT-TL,Sambaa K'e at Sambaa K'e,Dehcho,60.4403,-121.269,8/12/2016,7.98,100,320,8.973,NA
+TRT-IR2,Sambaa K'e at Island River / Mouth,Dehcho,60.4458,-121.2369,8/12/2016,8.09,66.5,309,9.6,NA
+TRT-TLW,Sambaa K'e at Sambaa K'e West Channel,Dehcho,60.5049,-121.4488,8/12/2016,8.08,6.01,228,11.57,NA
+MCP-VR,Fort McPherson at Vittrekwa River,Inuvik,67.1629,-135.0279,8/15/2016,7.17,80.2,158,NA,NA
+MCP-FC,Fort McPherson at Frog Creek / Upstream of Dempster Hyway,Inuvik,67.382,-134.1514,8/15/2016,7.94,116,250,NA,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,8/15/2016,8.09,197,191,NA,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,8/15/2016,7.93,1.97,209,8.146,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,8/15/2016,7.12,44.6,423,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,8/15/2016,NA,NA,NA,6.112,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,8/15/2016,7.98,97.9,198,NA,NA
+WRG-MR,Wrigley at Mackenzie River,Dehcho,63.1526,-123.3313,8/19/2016,8.29,70.1,340,NA,NA
+SIM-MR,Fort Simpson at Mackenzie River / Upstream of Liard River Mouth,Dehcho,61.853,-121.2789,8/19/2016,8.06,76.8,251,NA,NA
+SIM-LR,Fort Simpson at Liard River / Upstream of Ferry,Dehcho,61.7325,-121.2385,8/19/2016,7.38,35.1,444,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,8/22/2016,8.14,25.5,293,NA,NA
+KAK-KR,Kakisa at Kakisa River,Dehcho,60.9383,-117.4235,8/22/2016,NA,0.595,NA,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,8/22/2016,8.07,115,276,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,8/22/2016,8.13,1.25,793,NA,NA
+PRV-D/S,Fort Providence at Mackenzie River / Downstream of Boat Launch,Dehcho,61.3973,-117.7535,8/23/2016,7.965,0.73,134,NA,NA
+PRV-U/S 2,Fort Providence at Mackenzie River / Upstream of Bridge / West Side of Channel,Dehcho,61.258,-117.523,8/23/2016,8.12,10.7,228,NA,NA
+TUL-MC,Tulita at Mackay Creek / Mouth,Sahtu,64.8725,-125.7234,8/29/2016,8.33,4.71,239,18.82,NA
+TUL-BC,Tulita at Bog Creek / Mouth,Sahtu,65.0318,-126.2136,8/29/2016,NA,NA,NA,20.341,NA
+TUL-MR,Tulita at Mackenzie River,Sahtu,64.8941,-125.5916,8/29/2016,8.22,66.8,299,17.044,NA
+TUL-SC,Tulita at Slater Creek / Mouth,Sahtu,64.966,-126.0995,8/29/2016,7.99,1.83,185,NA,NA
+TUL-GBR,Tulita at Great Bear River,Sahtu,64.9175,-125.5806,8/29/2016,8.06,324,370,16.5,NA
+FGH-RSR,Fort Good Hope at Rabbit Skin River,Sahtu,66.295,-128.6058,8/29/2016,7.97,27.2,224,NA,NA
+NW-FGH-S.RAP,Sans Sault Rapids between Norman Wells and Fort Good Hope / Mackenzie River,Sahtu,65.6652,-128.7309,8/29/2016,8.05,77.1,338,18.4,NA
+NW-FGH-CR-D/S,Carcajou River at Mouth by Sans Sault Rapids,Sahtu,65.6223,-128.7164,8/29/2016,8.23,30.8,264,NA,NA
+NW-MR-U/S,Norman Wells at Mackenzie River / Upstream of Imperial Island 1,Sahtu,65.2755,-126.8666,8/29/2016,8.16,133,293,NA,NA
+NW-BC-U/S,Norman Wells at Bosworth Creek / Upstream of Canol Drive Bridge,Sahtu,65.2905,-126.8754,8/29/2016,7.92,500,420,NA,NA
+NW-D/S,Norman Wells at Mackenzie River / Downstream at Radar Island,Sahtu,65.3033,-127.0584,8/29/2016,8.18,17,223,19.94,NA
+NW-BC,Norman Wells at Bosworth Creek / Under Downstream Bridge,Sahtu,65.283,-126.8654,8/29/2016,8.05,50.8,300,NA,NA
+JMR-U/S,Jean Marie at Jean Marie River / Upstream of HWY Work Site,Dehcho,null,null,8/31/2016,7.82,115.3333333,157.6666667,NA,NA
+JMR-D/S,Jean Marie at Jean Marie River / Downstream of HWY,Dehcho,null,null,8/31/2016,7.63,1.73,158,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,9/7/2016,8.22,3.74,224,NA,NA
+HAY-U/S,Hay River at Hay River / Upstream of West Channel,Dehcho,60.8198,-115.7692,9/8/2016,8.07,224,389,NA,NA
+HAY-GSL,Hay River at Mouth of Hay River / Great Slave Lake,Dehcho,60.8649,-115.7328,9/8/2016,8.196666667,21.2,282.6666667,NA,NA
+TSI-MR,Tsiigehtchic at Mackenzie River,Inuvik,67.4672,-133.5846,9/12/2016,NA,NA,NA,13.771,NA
+MCP-PR,Fort McPherson at Peel River,Inuvik,67.2587,-134.8931,9/12/2016,8,207,264,NA,NA
+MCP-VR,Fort McPherson at Vittrekwa River,Inuvik,67.1629,-135.0279,9/12/2016,7.96,2.97,165,NA,NA
+MCP-FC,Fort McPherson at Frog Creek / Upstream of Dempster Hyway,Inuvik,67.382,-134.1514,9/12/2016,7.85,653,243,NA,NA
+TSI-AR,Tsiigehtchic at Arctic Red River,Inuvik,67.4155,-133.7697,9/12/2016,7.88,2.16,179,6.31,NA
+INV-MR,Inuvik at Mackenzie River / East Channel,Inuvik,68.5608,-133.9805,9/12/2016,8.23,4.46,228,NA,NA
+AKL-PCH,Aklavik at Mackenzie Delta / Peel Channel,Inuvik,68.1391,-135.2135,9/12/2016,8.16,41.1,294,NA,NA
+RES-SR,Fort Resolution at Slave River / Big Eddy,S. Slave,61.2674,-113.4161,9/19/2016,8,89.1,233,NA,NA
+RES-GSL,Fort Resolution at Resolution Bay / Great Slave Lake,S. Slave,61.1576,-113.6845,9/19/2016,7.91,1.05,201,NA,NA
+STH-SR ,Fort Smith at Slave River / Rapids,S. Slave,60.0207,-111.885,9/19/2016,8.06,44,270,NA,NA
+BEH-FCH,Behchoko at Franks Channel / Upstream from Bridge,N. Slave,62.7857,-115.9467,9/29/2016,8.33,6.58,223,NA,NA
+ YEL-GSL-Dettah,Yellowknife at Yellowknife Bay - Dettah / Great Slave Lake,N. Slave,62.4101,-114.3187,9/29/2016,8.36,0.84,690,NA,NA
+YEL-YR,Yellowknife at Yellowknife River / Upstream from Bridge,N. Slave,62.5401,-114.2955,9/29/2016,7.79,1.98,54.5,NA,NA
+YEL-GSL-N'dilo,Yellowknife at Yellowknife Bay - N'dilo / Great Slave Lake,N. Slave,62.4805,-114.331,9/29/2016,7.88,34.5,144,NA,NA
