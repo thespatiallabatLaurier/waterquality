@@ -15,21 +15,51 @@ library(rgdal)
 library(EnvStats)
 library(parsedate)
 library(plotly)
-options(shiny.maxRequestSize=300*1024^2) 
+library(shinyWidgets)
+options(shiny.maxRequestSize=100000000000000000000*1024^2) 
 
 function(input,output,session) {
+output$whichfile <- renderUI({
+  radioButtons(inputId = "whichfile",label="Would you like to add your
+               own data or use CWDAT's built-in data?", choices=c("None","Mine","Built-in"),selected="None"
+              )
+})
 
-  
+output$whichfileT <- renderUI({
+  radioButtons(inputId = "whichfileT",label="Would you like to add your
+               own data or use CWDAT's built-in data?", choices=c("None","Mine","Built-in"),selected="None"
+  )
+})
+
+
   ## Process uploaded dataset (ref)
-  refdata <- reactive({
-    inFileR <- input$rf 
-    if (is.null(inFileR))
+  refdata <- eventReactive(c(input$whichfile,input$rf),{
+    
+    if (input$whichfile == "None"){
       return(NULL)
+    }
+    
+    else if(input$whichfile == "Mine"){
+    inFileR <- input$rf 
+      if (is.null(inFileR)){
+      return(NULL)
+    }
+    
     Rdata <- read.csv(inFileR$datapath,stringsAsFactors=F)
     Rdata
-  })
+    }
+    else if (input$whichfile == "Built-in") {
+      Rdata <- read.csv("Water_Qual_Eau_Mackenzie_2000_present.csv",stringsAsFactors = F)
+      rownames(Rdata) <- NULL
+      Rdata
+    }
+    
+    
+    
+})
   
-  observeEvent(input$rf,{
+  observeEvent(
+    refdata(), {
     gscv <<- names(refdata())[(gsc(refdata()))]
     gdcv <<- names(refdata())[(gdc(refdata()))]
     gycv <<- names(refdata())[(gyc(refdata()))]
@@ -40,15 +70,29 @@ function(input,output,session) {
   
   ## Process uploaded dataset (test)
   
-  testdata <- reactive({
-    inFileT <- input$tf 
-    if (is.null(inFileT))
+  testdata <- eventReactive(c(input$whichfileT,input$tf),{
+    
+    if (input$whichfileT == "None"){
       return(NULL)
-    Tdata <- read.csv(inFileT$datapath,stringsAsFactors=F)
-    Tdata
+    }
+    
+    else if(input$whichfileT == "Mine"){
+      inFileR <- input$tf 
+      if (is.null(inFileR)){
+        return(NULL)
+      }
+      
+      Tdata <- read.csv(inFileR$datapath,stringsAsFactors=F)
+      Tdata
+    }
+    else if (input$whichfileT == "Built-in") {
+      Tdata <- read.csv("cbmgrab.csv",stringsAsFactors = F)
+      Tdata
+    }
+    
   })
   
-  observeEvent(input$tf,{
+  observeEvent(testdata(),{
     gscvt <<- names(testdata())[(gsc(testdata()))]
     gdcvt <<- names(testdata())[(gdc(testdata()))]
     gycvt <<- names(testdata())[(gyc(testdata()))]
@@ -78,7 +122,7 @@ function(input,output,session) {
   ## Select column which contains date (ref)
   ## Reference Datset: Data Upload and Properties
   output$Rdate <- renderUI({
-    req(input$rf)
+    req(refdata())
     selectInput("rdate",label="Please select the column containing date information",
                 choices=colnames(refdata()),selected=gdcv) 
   })
@@ -87,7 +131,7 @@ function(input,output,session) {
   ## Test Datset: Data Upload and Properties
   
   output$Tdate <- renderUI({
-    req(input$tf)
+    req(testdata())
     selectInput("tdate",label="Please select the column containing date information",
                 choices=colnames(testdata()),selected=gdcvt)
   })
@@ -108,7 +152,7 @@ function(input,output,session) {
   ## Select column which contains longitude (ref)
   ## Reference Dataset: Data Upload and Properties
   output$Rlong <- renderUI({
-    req(input$rf)
+    req(refdata())
     selectInput("rlong",label="Please select the column containing longitude values",
                 choices=colnames(refdata()),selected=gxcv)
   })
@@ -117,7 +161,7 @@ function(input,output,session) {
   ## Select column which contains longitude (test)
   ## Test Dataset: Data Upload and Properties
   output$Tlong <- renderUI({
-    req(input$tf)
+    req(testdata())
     selectInput("tlong",label="Please select the column containing longitude values",
                 choices=colnames(testdata()),selected=gxcvt)
   })
@@ -125,7 +169,7 @@ function(input,output,session) {
   ## Select column which contains latitude (ref)
   ## Reference Dataset: Data Upload and Properties
   output$Rlat <- renderUI({
-    req(input$rf)
+    req(refdata())
     selectInput("rlat",label="Please select the column containing latitude values",
                 choices=colnames(refdata()),selected=gycv) 
   })
@@ -134,7 +178,7 @@ function(input,output,session) {
   ## Test Datset: Data Upload and Properties
   
   output$Tlat <- renderUI({
-    req(input$tf)
+    req(testdata())
     selectInput("tlat",label="Please select the column containing latitude values",
                 choices=colnames(testdata()),selected=gycvt) 
   })
@@ -142,33 +186,68 @@ function(input,output,session) {
   ## Select column which contains unique site identifier (ref)
   ## Reference Dataset: Data Upload and Properties
   output$Rsid <- renderUI({
-    req(input$rf)
+    req(refdata())
+    choices <- colnames(refdata())
     selectInput("rsid",label="Please select the column containing unique site identifiers",
-                choices=colnames(refdata()),selected=gscv) 
+                choices=choices,selected=gscv) 
   })
   
   ## Select column which contains unique site identifier (test)
   ## Test Dataset: Data Upload and Properties
   output$Tsid <- renderUI({
-    req(input$tf)
+    req(testdata())
     selectInput("tsid",label="Please select the column containing unique site identifiers",
                 choices=colnames(testdata()),selected=gscvt) 
   })
   
   ######### Handling Different Formats #####
   output$Rformat <- renderUI({
-    req(input$rf)
+    req(refdata())
+    if (input$whichfile == "Mine"){
     radioButtons("rformat",label="Please select the format of your data", choices=c("Wide","Long"))
+    }
+    else if (input$whichfile == "Built-in"){
+      radioButtons("rformat",label="Please select the format of your data", choices=c("Wide","Long"), selected = "Long") 
+    }
   })
   
   output$Rpars <- renderUI({
-    req(input$rf)
-    selectInput("rpars",label="Please select the column which contains parameter names",choices=colnames(refdata()),selected=gpcv)
+    req(refdata())
+    choices <- colnames(dplyr::select_if(refdata(),is.character))
+    selectInput("rpars",label="Please select the column which contains parameter names",choices=choices,selected=gpcv)
   })
   
+  output$RparsW <- renderUI({
+    req(refdata())
+    choices <- colnames(dplyr::select_if(refdata(),is.numeric))
+    if (input$whichfile == "Mine"){
+    selectInput("rparsW",label = "Please select the columns which contain observed water quality parameter values",choices=choices,multiple=T)
+    }
+    else if (input$whichfile== "Built-in"){
+      selectInput("rparsW",label = "Please select the columns which contain observed water quality parameter values",choices=choices,multiple=T)
+      
+    }
+    })
+  
   output$Rvals <- renderUI({
-    req(input$rf)
-    selectInput("rvals",label="Please select the column which contains result values",choices=colnames(refdata()),selected=grcv)
+    req(refdata())
+    choices <- colnames(dplyr::select_if(refdata(),is.numeric))
+    selectInput("rvals",label="Please select the column which contains result values",choices=choices,selected=grcv)
+  })
+  output$rconfirm <- renderUI({
+    req(refdata())
+    actionButton("rconfirm","Submit column selections")
+  })
+  
+  observeEvent(input$rconfirm, {
+    req(input$rformat,input$whichfile)
+    if (input$whichfile == "Mine"){
+    mess2 <- paste("You have provided your own dataset, with a",input$rformat,"data structure.")
+    }
+    else if (input$whichfile == "Built-in"){
+      mess2 <- paste("You are using CWDAT's built-in dataset, which has a",input$rformat,"data structure.")
+    }
+    shinyalert("Column selections submitted",mess2, type = "success",closeOnEsc= TRUE,closeOnClickOutside=TRUE,animation=TRUE)
   })
   
   
@@ -176,20 +255,47 @@ function(input,output,session) {
   
   ######### Handling Different Formats #####
   output$Tformat <- renderUI({
-    req(input$tf)
+    req(testdata())
     radioButtons("tformat",label="Please select the format of your data", choices=c("Wide","Long"))
   })
   
   output$Tpars <- renderUI({
-    req(input$tf)
+    req(testdata())
     selectInput("tpars",label="Please select the column which contains parameter names",choices=colnames(testdata()),selected=gpcvt)
   })
   
+  output$TparsW <- renderUI({
+    req(testdata())
+    choices <- colnames(dplyr::select_if(testdata(),is.numeric))
+    if (input$whichfileT == "Mine"){
+      selectInput("tparsW",label = "Please select the columns which contain observed water quality parameter values",choices=choices,multiple=T)
+    }
+    else if (input$whichfileT== "Built-in"){
+      selectInput("tparsW",label = "Please select the columns which contain observed water quality parameter values",choices=choices,multiple=T,selected=c("pH","Turbidity","Specific_Conductance","Temperature"))
+      
+    }
+  })
+  
   output$Tvals <- renderUI({
-    req(input$tf)
+    req(testdata())
     selectInput("tvals",label="Please select the column which contains result values",choices=colnames(testdata()),selected=grcvt)
   })
   
+  output$tconfirm <- renderUI({
+    req(testdata())
+    actionButton("tconfirm","Submit column selections")
+  })
+  
+  observeEvent(input$tconfirm, {
+    req(input$tformat,input$whichfileT)
+    if (input$whichfileT == "Mine"){
+      mess2 <- paste("You have provided your own dataset, with a",input$tformat,"data structure.")
+    }
+    else if (input$whichfileT == "Built-in"){
+      mess2 <- paste("You are using CWDAT's built-in dataset, which has a",input$tformat,"data structure.")
+    }
+    shinyalert("Column selections submitted",mess2, type = "success",closeOnEsc= TRUE,closeOnClickOutside=TRUE,animation=TRUE)
+  })
   
   ################### Parse date column of input files once, then use resultant file for all other application########
   
@@ -206,7 +312,6 @@ function(input,output,session) {
   ###### Test
   
   testdata2 <- eventReactive(input$tconfirm,{
-    req(input$tf,input$tdate)
     testdata2 <- testdata()
     testdata2 <- subset(testdata2,!is.na(testdata2[,dt()]))
     testdata2[,dt()] <- parse_date(testdata2[,dt()])
@@ -214,13 +319,13 @@ function(input,output,session) {
     testdata2 
   })
   
- ############################################################################################## SPATIAL VISUALIZATION #############
+ ###################### SPATIAL VISUALIZATION #############
   
 ############## Reference Dataset Only######################################
 
 
   output$Rmap <- renderLeaflet({
-    req(input$rf,input$rlong,input$rlat,input$rsid,input$rdate)
+    req(input$rconfirm,input$rlong,input$rlat,input$rsid,input$rdate)
     
     leaflet() %>%
       addTiles()
@@ -228,21 +333,21 @@ function(input,output,session) {
   
  ## Get column indice value for Longitude
  x <- reactive({
-   req(input$rf,input$rlong,input$rlat,input$rsid,input$rdate)
+   req(input$rconfirm,input$rlong,input$rlat,input$rsid,input$rdate)
    x <- which(colnames(refdata2())==input$rlong)
    x
  })
  
  ## get column indice value for Latitude
  y <- reactive({
-   req(input$rf,input$rlong,input$rlat,input$rsid,input$rdate)
+   req(input$rconfirm,input$rlong,input$rlat,input$rsid,input$rdate)
    y <- which(colnames(refdata2())==input$rlat)
    y
  })
  
  ## get column indice value for Site Unique Identifier
  s <- reactive({
-   req(input$rf,input$rlong,input$rlat,input$rsid,input$rdate)
+   req(input$rconfirm,input$rlong,input$rlat,input$rsid,input$rdate)
    s <- which(colnames(refdata2())==input$rsid)
    s
    
@@ -295,13 +400,24 @@ function(input,output,session) {
  #Map part
  observe({
    req(input$rconfirm,input$table_rows_all)
+   withProgress(message =
+                  "Loading map - please wait",
+                
+                min=0,max=20,detail=NULL,
+                
+                
+                {
+                  for (i in 1:20) {
+                    incProgress(1/20)
+                  }
+                  
    
    leafletProxy("Rmap",data=newtable()) %>%
      clearMarkers() %>%
-     addMarkers(lng=~as.numeric(newtable()[,x()]),lat=~as.numeric(newtable()[,y()]),popup = ~as.character(newtable()[,s()]),layerId=newtable()[,s()]) %>%
+     addMarkers(lng=~as.numeric(unique(newtable()[,x()])),lat=~as.numeric(unique(newtable()[,y()])),popup = ~as.character(unique(newtable()[,s()])),layerId=unique(newtable()[,s()])) %>%
      fitBounds(lng1 = max(newtable()[,x()],na.rm=TRUE),lat1 = max(newtable()[,y()],na.rm=TRUE),
                lng2 = min(newtable()[,x()],na.rm=TRUE),lat2 = min(newtable()[,y()],na.rm=TRUE))
-   
+                })
  })
  
  
@@ -309,44 +425,13 @@ function(input,output,session) {
  
  output$pselect <- renderUI({
    req(input$rconfirm,input$rformat=="Wide")
-   selectInput("p","Select a Parameter of Interest",choices=colnames(refdata2()))  
+   selectInput("p","Select a Parameter of Interest",choices=colnames(refdata2())[colnames(refdata2()) %in% input$rparsW])  
  })
  
  output$pselectL <- renderUI({
    req(input$rconfirm,input$rformat=="Long")
    selectInput("pL","Select a Parameter of Interest",choices=unique(refdata2()[,p()]))  
  })
- 
- # output$addguide <- renderUI({
- #   req(input$rconfirm)
- #   radioButtons("addguide","Would you like to apply a CCME guideline?",choices=c("No","Yes"))
- # })
- 
- # selected <- reactive({
- #   req(input$addguide=="Yes")
- #   if (input$rformat=="Wide"){
- #     poi <- input$p
- #   }
- #   else {
- #     poi <- input$pL
- #   }
- #   m <- ccme1(poi)
- #   m
- # })
- # 
- # output$selguide <- renderUI({
- #   req(input$addguide=="Yes")
- #   
- #   selectInput("selguide","Select the guideline parameter which matches your parameter of interest",choices=guidepars,selected=guidepars[selected()])
- # })
- # 
- # observe({
- # 
- # updateSelectInput(session, inputId = "selguide",selected=guidepars[selected()])
- # })
- # 
- 
-
  
  #  ## Save column indice value for parameter
  n <- reactive({
@@ -361,33 +446,6 @@ function(input,output,session) {
    newtable2 <- newtable()
    newtable2
  })
- 
- 
- 
- 
- 
- # output$hardW <- renderUI({
- #   req(input$rconfirm,input$rformat=="Wide",input$selguide %in% conditionalPars)
- #   selectInput("alkW","Select the parameter representing hardness (CaCO3) in mg/L",choices=colnames(refdata2()))
- # })
- # 
- # output$hardL <- renderUI({
- #   req(input$rconfirm,input$rformat=="Long",input$selguide %in% conditionalPars)
- #   selectInput("alkL","Select the parameter representing hardness (CaCO3) in mg/L ",choices=unique(refdata2()[,p()]))
- # })
- # 
- # output$phW <- renderUI({
- #   req(input$rconfirm,input$rformat=="Wide")
- #   selectInput("phW","Select the parameter representing pH",choices=colnames(refdata2()))
- # })
- # 
- # output$phL <- renderUI({
- #   req(input$rconfirm,input$rformat=="Long")
- #   selectInput("phL","Select the parameter representing pH",choices=unique(refdata2()[,p()]))
- # })
- 
-
- 
  
  
  data <- reactiveValues(Clicks=list())
@@ -519,7 +577,51 @@ function(input,output,session) {
  })
    
  
- 
+ output$SpatVisreport <- downloadHandler(
+   
+   
+   # For PDF output, change this to "report.pdf"
+   filename = "SpatialVis.pdf",
+   content = function(file) {
+     
+     iterations <- unique(newtable()[,s()])
+     
+     for (s in interations){
+       path <- paste0(iterations,".pdf")
+     }
+     
+     
+     withProgress(message = 'Preparing your report - please wait!',{
+       # Copy the report file to a temporary directory before processing it, in
+       # case we don't have write permissions to the current working dir (which
+       # can happen when deployed).
+       tempReport <- file.path(tempdir(), "SpatVistemplate.Rmd")
+       file.copy("SpatVistemplate.Rmd", tempReport, overwrite = TRUE)
+       
+       if (inpur$rformat == "Long"){
+         varsCol <- input$rvars
+         parsCol <- input$rpars
+       }
+       else if (input$rformat == "Wide"){
+         parsCol <- input$rparsW
+         varsCol <- NA
+       }
+       
+       # Set up parameters to pass to Rmd document
+       params <- list(data = data.frame(newtable()), siteCol = s(), dateCol = d(),varsCol=varsCol,parsCol = parsCol, dataFormat = input$rformat,Sites=input$rsid,latCol = y(), longCol = x(), rendered_by_shiny=TRUE)
+       
+       # Knit the document, passing in the `params` list, and eval it in a
+       # child of the global environment (this isolates the code in the document
+       # from the code in this app).
+       rmarkdown::render(tempReport, output_file = file,
+                         params = params,
+                         envir = new.env(parent = globalenv())
+       )
+     })
+   }
+   
+ )
+   
  
 
  
@@ -528,7 +630,7 @@ function(input,output,session) {
 
 
 output$Tmap <- renderLeaflet({
-  req(input$tf,input$tlong,input$tlat,input$tsid,input$tdate)
+  req(input$tconfirm,input$tlong,input$tlat,input$tsid,input$tdate)
   leaflet() %>%
     addTiles()
 })
@@ -589,7 +691,7 @@ rowst <- reactive({
 
 ## get new table based on rowst that remain, then use
 newtablet <- reactive({
-  req(input$tf,input$tlong,input$tlat,input$tdate,input$tsid)
+  req(input$tconfirm,input$tlong,input$tlat,input$tdate,input$tsid)
   newtablet <- testdata2()[rowst(),]
   newtablet
 })
@@ -598,12 +700,24 @@ newtablet <- reactive({
 # Map part
 observe({
   req(input$tconfirm,input$tablet_rows_all)
+    
+    withProgress(message =
+                   "Loading map - please wait",
+                 
+                 min=0,max=20,detail=NULL,
+                 
+                 
+                 {
+                   for (i in 1:20) {
+                     incProgress(1/20)
+                   }
   
   leafletProxy("Tmap",data=newtablet()) %>%
     clearMarkers() %>%
-    addMarkers(lng=~as.numeric(newtablet()[,xt()]),lat=~as.numeric(newtablet()[,yt()]),popup = ~as.character(newtablet()[,st()]),layerId=newtablet()[,st()]) %>%
+    addMarkers(lng=~as.numeric(unique(newtablet()[,xt()])),lat=~as.numeric(unique(newtablet()[,yt()])),popup = ~as.character(unique(newtablet()[,st()])),layerId=unique(newtablet()[,st()])) %>%
     fitBounds(lng1 = max(newtablet()[,xt()],na.rm=TRUE),lat1 = max(newtablet()[,yt()],na.rm=TRUE),
               lng2 = min(newtablet()[,xt()],na.rm=TRUE),lat2 = min(newtablet()[,yt()],na.rm=TRUE))
+                 })
   
 })
 
@@ -628,7 +742,7 @@ nt <- reactive({
 
 # Step 1: Copy newtablet
 newtablet2 <- reactive({
-  req(input$tf,input$tlong,input$tlat,input$tsid,input$tdate)
+  req(input$tconfirm,input$tlong,input$tlat,input$tsid,input$tdate)
   newtablet2 <- newtablet()
   newtablet2
 })
@@ -743,14 +857,23 @@ refdatasalpha <- reactive({
 
 ## Selection of sites to visualize
 output$selectsites <- renderUI({
-  checkboxGroupInput("selsite","Only show data from the selected site(s)",choices=unique(refdatasalpha()[,s()]),inline=TRUE)
+  pickerInput("selsite","Select site(s)",choices=unique(refdatasalpha()[,s()]),inline=FALSE,multiple=TRUE,
+              selected=unique(refdatasalpha()[,s()]),
+              options = list(
+    `actions-box` = TRUE,
+    `deselect-all-text` = "Deselect all",
+    `select-all-text` = "Select All",
+    `none-selected-text` = "No sites selected",
+    `selected-text-format`= "count",
+    `count-selected-text` = "{0} of {1} sites selected"
+  ))
 })
 
 ## Selection of variable one (y) for temporal page: reference data
 output$cselect1 <- renderUI({
   req(input$rconfirm)
   if (input$rformat=="Wide"){
-    choices=colnames(refdata2())
+    choices=colnames(refdata2()[,(colnames(refdata2()) %in% input$rparsW)])
   }
   else if (input$rformat=="Long"){
     choices=unique(refdata2()[,p()])
@@ -762,7 +885,7 @@ output$cselect1 <- renderUI({
 ## Get y column indice
 cy <- reactive({
   req(input$rformat=="Wide")
-  co1 <- isolate(which(colnames(refdata2())==input$c1))
+  co1 <- which(colnames(refdata2())==input$c1)
   co1
   
 })
@@ -770,7 +893,7 @@ cy <- reactive({
 
 ## Selection of variable 2 (x) for temporal page: reference data
 output$cselect2 <- renderUI({
-  req(input$rconfirm)
+  #req(input$rconfirm)
   if (input$rformat=="Wide"){
     choices=colnames(refdata2())
   }
@@ -784,8 +907,7 @@ output$cselect2 <- renderUI({
 ## Get x column indice
 cx <- reactive({
   req(input$rformat=="Wide")
-  input$refresh
-  co2 <- isolate(which(colnames(refdata())==input$c2))
+  co2 <- which(colnames(refdata())==input$c2)
   co2
   
 })
@@ -794,7 +916,7 @@ cx <- reactive({
 ## Also need to account for selection of date format and parse accordingly
 ## Arrange by month for month input, arrange by year for year input
 refdatadam <- reactive({
-  req(input$rf,input$rdate)
+  req(input$rconfirm,input$rdate)
   # Make a usable copy of the original refdata
   refdatan <- refdata2()
   refdatan$Month <- month(refdatan[,d()]) 
@@ -807,7 +929,7 @@ refdatadam <- reactive({
 #####
 
 refdataday <- reactive({
-  req(input$rf,input$rdate)
+  req(input$rconfirm,input$rdate)
   # Make a usable copy of the original refdata
   refdatan <- refdata2()
   refdatan$Month <- month(refdatan[,d()]) 
@@ -821,22 +943,39 @@ refdataday <- reactive({
 
 ## Use refdatad to get date ranges
 output$filtermonth <- renderUI({
-  req(input$rf,input$rdate)
-  checkboxGroupInput("filtermonth","Show data from the selected month(s)",choices=unique(refdatadam()$Monthn),inline=TRUE)
+  req(input$rconfirm,input$rdate)
+  pickerInput("filtermonth","Select month(s)",choices=unique(refdatadam()$Monthn),inline=FALSE,multiple=TRUE,
+              selected=unique(refdatadam()$Monthn),options = list(
+    `actions-box` = TRUE,
+    `deselect-all-text` = "Deselect all",
+    `select-all-text` = "Select All",
+    `none-selected-text` = "No months selected",
+    `selected-text-format`= "count",
+    `count-selected-text` = "{0} of {1} months selected"
+  ))
 })
 
 output$filteryear <- renderUI({
-  req(input$rf,input$rdate)
-  checkboxGroupInput("filteryear","Show data from the selected year(s)",choices=unique(refdataday()$Year),inline=TRUE)
+  req(input$rconfirm,input$rdate)
+  pickerInput("filteryear","Select year(s)",choices=unique(refdataday()$Year),inline=FALSE,multiple=TRUE,
+              selected=unique(refdataday()$Year),
+              options = list(
+    `actions-box` = TRUE,
+    `deselect-all-text` = "Deselect all",
+    `select-all-text` = "Select All",
+    `none-selected-text` = "No years selected",
+    `selected-text-format`= "count",
+    `count-selected-text` = "{0} of {1} years selected"
+  ))
 })
 
 
 ### Filter data based on user inputs to generate final dataframe for plotting
 refdatadf <- reactive({
-  req(input$rf, input$rdate,input$c1,input$selsite)
-  input$refresh
-  refdatadf <- refdataday()
-  refdatadf <- isolate(subset(refdatadf,refdatadf$Monthn %in% input$filtermonth & (refdatadf$Year %in% input$filteryear) & (refdatadf[,s()] %in% input$selsite)))
+  #req(input$rconfirm, input$rdate,input$c1,input$selsite)
+  #input$refresh
+  refdatadf <- refdataday() 
+  refdatadf <- subset(refdatadf,refdatadf$Monthn %in% input$filtermonth & (refdatadf$Year %in% input$filteryear) & (refdatadf[,s()] %in% input$selsite))
   refdatadf
 })
 
@@ -875,13 +1014,13 @@ output$refout <- renderPlot({
 })
 
 
-plotInput <- function(){
-  input$refresh
-  if (input$refresh == 0)
-    return()
-  if (input$vars==1){
+plotInput <- reactive({
+  # input$refresh
+  # if (input$refresh == 0)
+  #   return()
+   if (input$vars==1){
   
-  isolate(
+  #isolate(
     ##################### Single Variable -- Histogram
     
   if (input$ptype1 == "Histogram") {
@@ -893,14 +1032,14 @@ plotInput <- function(){
     # })
     
     title <- reactive({
-      input$refresh
-      t <- isolate(as.character(input$title))
+      #input$refresh
+      t <-as.character(input$title)
       t
     })
     
     xl <- reactive({
-      input$refresh
-      xl <- isolate(paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")")) ## This works, y axis label is 'count'
+      #input$refresh
+      xl <- paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")") ## This works, y axis label is 'count'
     })
     
     if (input$rformat=="Wide"){
@@ -923,16 +1062,16 @@ plotInput <- function(){
   
   
   else if(input$ptype1=="Density") {
-    input$refresh
+    #input$refresh
     title <- reactive({
-      input$refresh
-      t <- isolate(as.character(input$title))
+      #input$refresh
+      t <- as.character(input$title)
       t
     })
     
     xl <- reactive({
-      input$refresh
-      xl <- isolate(paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")")) ## this is fine because y label is 'density'
+      #input$refresh
+      xl <- paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")") ## this is fine because y label is 'density'
     })
     
     if (input$rformat=="Wide"){
@@ -954,24 +1093,24 @@ plotInput <- function(){
     
     
   else if (input$ptype1=="Discrete Bar Plot")  {
-    input$refresh
+    #input$refresh
     
     
     title <- reactive({
-      input$refresh
-      t <- isolate(as.character(input$title))
+      #input$refresh
+      t <- as.character(input$title)
       t
     })
     
     xl <- reactive({
-      input$refresh
-      xl <- isolate(paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")")) ## this is fince because y label is 'count'
+      #input$refresh
+      xl <- paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")") ## this is fince because y label is 'count'
     })
     
     
     cwi <- reactive({
-      input$refresh
-      wid <- isolate(input$width)
+      #input$refresh
+      wid <- input$width
       wid
     })
     
@@ -992,14 +1131,14 @@ plotInput <- function(){
   else {
     
     title <- reactive({
-      input$refresh
-      t <- isolate(as.character(input$title))
+      #input$refresh
+      t <- as.character(input$title)
       t
     })
     
     yl <- reactive({
-      input$refresh
-      yl <- isolate(paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")")) ###### y label only for boxplot
+      #input$refresh
+      yl <- paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units),")") ###### y label only for boxplot
     })
     
     if (input$rformat=="Wide"){
@@ -1012,35 +1151,35 @@ plotInput <- function(){
     
   }
     
-    )
+    #)
   } #### END OF UNIVARIATE CODE, START OF BIVARIATE OPTIONS ######################################
   else {
-    input$refresh
-    isolate(
+    #input$refresh
+    #isolate(
       
       
       if(input$ptype2 == "Point"){
         
         title <- reactive({
-          input$refresh
-          t <- isolate(as.character(input$title))
+          #input$refresh
+          t <- as.character(input$title)
           t
         })
         
         xl <- reactive({
-          input$refresh
+          #input$refresh
           if (cx()==d()) {
             xl <- as.character(colnames(refdata()[cx()]))  
           }
           else {
-          xl <- isolate(paste(as.character(colnames(refdata()[cx()]))," (",as.character(input$units2x),")"))
+          xl <- paste(as.character(colnames(refdata()[cx()]))," (",as.character(input$units2x),")")
           }
           xl
         })
         
         yl <- reactive({
-          input$refresh
-        yl <- isolate(paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units2y),")"))
+          #input$refresh
+        yl <- paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units2y),")")
         })
         
         if (input$rformat=="Wide"){
@@ -1076,30 +1215,30 @@ plotInput <- function(){
       
       
       else if(input$ptype2=="Line") {
-        input$refresh
+        #input$refresh
         
         
         
         title <- reactive({
           input$refresh
-          t <- isolate(as.character(input$title))
+          t <- as.character(input$title)
           t
         })
         
         xl <- reactive({
-          input$refresh
+          #input$refresh
           if (cx()==d()) {
             xl <- as.character(colnames(refdata()[cx()]))  
           }
           else {
-            xl <- isolate(paste(as.character(colnames(refdata()[cx()]))," (",as.character(input$units2x),")"))
+            xl <- paste(as.character(colnames(refdata()[cx()]))," (",as.character(input$units2x),")")
           }
           xl
         })
         
         yl <- reactive({
-          input$refresh
-          yl <- isolate(paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units2y),")"))
+          #input$refresh
+          yl <- paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units2y),")")
         })
         
         if (input$rformat=="Wide"){
@@ -1129,27 +1268,27 @@ plotInput <- function(){
       }
       
       else if(input$ptype2=="Discrete Box Plot"){ ########### Discrete Box Plot
-        input$refresh
+        #input$refresh
         
         # validate(
         #   need(class(refdatadf()[,cx()])=="character"|class(refdatadf()[,cx()])=="factor","Please select a discrete variable to display on the x axis")
         # )
         
         title <- reactive({
-          input$refresh
-          t <- isolate(as.character(input$title))
+          #input$refresh
+          t <- as.character(input$title)
           t
         })
         
         xl <- reactive({
-          input$refresh
-          xl <- isolate(as.character(colnames(refdata()[cx()])))
+          #input$refresh
+          xl <- as.character(colnames(refdata()[cx()]))
           xl
         })
         
         yl <- reactive({
-          input$refresh
-          yl <- isolate(paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units2y),")"))
+          #input$refresh
+          yl <- paste(as.character(colnames(refdata()[cy()]))," (",as.character(input$units2y),")")
         })
         
         if (input$rformat=="Wide"){
@@ -1184,11 +1323,11 @@ plotInput <- function(){
       
   
   
-  ) ## end of isoalte function for bivariate operations
+  #) ## end of isoalte function for bivariate operations
   } ## end of if/else options for bivariate visualization
   
 
-} ## end of RenderPLot script for reference data main graphic output
+}) ## end of RenderPLot script for reference data main graphic output
 
 
 #####################################################################################
@@ -1214,14 +1353,23 @@ testdatasalpha <- reactive({
 
 ## Selection of sites to visualize
 output$selectsitest <- renderUI({
-  selectInput("selsitet","Only show data from the selected site(s)",choices=unique(testdatasalpha()[,st()]),multiple=TRUE)
+  pickerInput("selsitet","Select site(s)",choices=unique(testdatasalpha()[,st()]),inline=FALSE,multiple=TRUE,
+              selected=unique(testdatasalpha()[,st()]),
+              options = list(
+                `actions-box` = TRUE,
+                `deselect-all-text` = "Deselect all",
+                `select-all-text` = "Select All",
+                `none-selected-text` = "No sites selected",
+                `selected-text-format`= "count",
+                `count-selected-text` = "{0} of {1} sites selected"
+              ))
 })
 
 ## Selection of variable 1 (y), test data
 output$cselect1t <- renderUI({
   req(input$tconfirm)
   if (input$tformat=="Wide"){
-    choices=colnames(testdata2())
+    choices=choices=colnames(testdata2()[,(colnames(testdata2()) %in% input$tparsW)])
   }
   else if (input$tformat=="Long"){
     choices=unique(testdata2()[,pt()])
@@ -1232,9 +1380,9 @@ output$cselect1t <- renderUI({
 
 ## Get y column indice
 cyt <- reactive({
-  input$refresht
+  #input$refresht
   req(input$tformat=="Wide")
-  co1 <- isolate(which(colnames(testdata2())==input$c1t))
+  co1 <- which(colnames(testdata2())==input$c1t)
   co1
   
 })
@@ -1256,15 +1404,15 @@ output$cselect2t <- renderUI({
 ## Get x column indice
 cxt <- reactive({
   req(input$tformat=="Wide")
-  input$refresht
-  co2 <- isolate(which(colnames(testdata())==input$c2t))
+  #input$refresht
+  co2 <- which(colnames(testdata())==input$c2t)
   co2
   
 })
 
 ### Parse Dates from original file for use in all graphical outputs.
 testdatadamt <- reactive({
-  req(input$tf,input$tdate)
+  req(input$tconfirm,input$tdate)
   testdatan <- testdata2()
   testdatan$Month <- month(testdatan[,dt()])
   testdatan$Monthn <- month.name[testdatan$Month]
@@ -1276,7 +1424,7 @@ testdatadamt <- reactive({
 #####
 
 testdatadayt <- reactive({
-  req(input$tf,input$tdate)
+  req(input$tconfirm,input$tdate)
   testdatan <- testdata2()
   testdatan$Month <- month(testdatan[,dt()])
   testdatan$Monthn <- month.name[testdatan$Month]
@@ -1289,22 +1437,43 @@ testdatadayt <- reactive({
 
 ## Use testdatadt to get date ranges
 output$filtermontht <- renderUI({
-  req(input$tf,input$tdate)
-  selectInput("filtermontht","Show data from the selected month(s)",choices=unique(testdatadamt()$Monthn),multiple=TRUE)
+  req(input$tconfirm,input$tdate)
+  pickerInput("filtermontht","Select month(s)",choices=unique(testdatadamt()$Monthn),inline=FALSE,multiple=TRUE,
+              selected=unique(testdatadamt()$Monthn),options = list(
+                `actions-box` = TRUE,
+                `deselect-all-text` = "Deselect all",
+                `select-all-text` = "Select All",
+                `none-selected-text` = "No months selected",
+                `selected-text-format`= "count",
+                `count-selected-text` = "{0} of {1} months selected"
+              ))
+  
+  #selectInput("filtermontht","Show data from the selected month(s)",choices=unique(testdatadamt()$Monthn),multiple=TRUE)
 })
 
 output$filteryeart <- renderUI({
-  req(input$tf,input$tdate)
-  selectInput("filteryeart","Show data from the selected year(s)",choices=unique(testdatadayt()$Year),multiple=TRUE)
+  req(input$tconfirm,input$tdate)
+  pickerInput("filteryeart","Select year(s)",choices=unique(testdatadayt()$Year),inline=FALSE,multiple=TRUE,
+              selected=unique(testdatadayt()$Year),
+              options = list(
+                `actions-box` = TRUE,
+                `deselect-all-text` = "Deselect all",
+                `select-all-text` = "Select All",
+                `none-selected-text` = "No years selected",
+                `selected-text-format`= "count",
+                `count-selected-text` = "{0} of {1} years selected"
+              ))
+  
+  #selectInput("filteryeart","Show data from the selected year(s)",choices=unique(testdatadayt()$Year),multiple=TRUE)
 })
 
 
 ### Filter data based on user inputs to generate final dataframe for plotting
 testdatadft <- reactive({
-  req(input$tf, input$tdate,input$c1t)
-  input$refresht
+  req(input$tconfirm, input$tdate,input$c1t)
+  #input$refresht
   testdatadft <- testdatadayt()
-  testdatadft <- isolate(subset(testdatadft,testdatadft$Monthn %in% input$filtermontht & (testdatadft$Year %in% input$filteryeart) & (testdatadft[,st()] %in% input$selsitet)))
+  testdatadft <- subset(testdatadft,testdatadft$Monthn %in% input$filtermontht & (testdatadft$Year %in% input$filteryeart) & (testdatadft[,st()] %in% input$selsitet))
   testdatadft
 })
 
@@ -1341,25 +1510,25 @@ output$refoutt <- renderPlot({
 
 
 plotInputt <- function(){
-  input$refresht
-  if (input$refresht == 0)
-    return()
+  #input$refresht
+  #if (input$refresht == 0)
+    #return()
   if (input$varst==1){
     
-    isolate(
+    #isolate(
       
       if (input$ptype1t == "Histogram") { ####### Single Variable: Histogram
-        input$refresht
+        #input$refresht
         
         titlet <- reactive({
-          input$refresht
-          t <- isolate(as.character(input$titlet))
+          #input$refresht
+          t <- as.character(input$titlet)
           t
         })
         
         xlt <- reactive({
-          input$refresht
-          xlt <- isolate(paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")"))
+          #input$refresht
+          xlt <- paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")")
         })
         
         if (input$tformat=="Wide"){
@@ -1378,19 +1547,19 @@ plotInputt <- function(){
       
       
       else if(input$ptype1t=="Density") { ######### Single Variable: Density
-        input$refresht
+        #input$refresht
         
         
         
         titlet <- reactive({
-          input$refresht
-          t <- isolate(as.character(input$titlet))
+          #input$refresht
+          t <- as.character(input$titlet)
           t
         })
         
         xlt <- reactive({
-          input$refresht
-          xlt <- isolate(paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")"))
+          #input$refresht
+          xlt <- paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")")
         })
         
         if (input$tformat=="Wide"){
@@ -1406,24 +1575,24 @@ plotInputt <- function(){
       
       
       else if (input$ptype1t=="Discrete Bar Plot")  { ######## Single Variable: Discrete Box Plot
-        input$refresht
+        #input$refresht
         
         
         titlet <- reactive({
-          input$refresht
-          t <- isolate(as.character(input$titlet))
+          #input$refresht
+          t <- as.character(input$titlet)
           t
         })
         
         xlt <- reactive({
-          input$refresht
-          xlt <- isolate(paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")"))
+          #input$refresht
+          xlt <- paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")")
         })
         
         
         cwit <- reactive({
-          input$refresht
-          wid <- isolate(input$widtht)
+          #input$refresht
+          wid <- input$widtht
           wid
         })
         
@@ -1443,16 +1612,16 @@ plotInputt <- function(){
       else { ################ Single Variable: Boxplot
         
         titlet <- reactive({
-          input$refresht
-          t <- isolate(as.character(input$titlet))
+          #input$refresht
+          t <- as.character(input$titlet)
           t
         })
         
         ylt <- reactive({
           req(input$tformat=="Wide")
-          input$refresht
+          #input$refresht
           #yl <- isolate(as.character(input$unitst))
-          yl <- isolate(paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")"))
+          yl <- paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$unitst),")")
         })
         
 
@@ -1465,36 +1634,36 @@ plotInputt <- function(){
         }
       }
       
-    )
+    #)
   } #### END OF UNIVARIATE CODE, START OF BIVARIATE OPTIONS
   else {
-    input$refresht
-    isolate(
+    #input$refresht
+    #isolate(
       
       
       if(input$ptype2t == "Point"){  ### Bivariate: Point Graph
         
         titlet <- reactive({
-          input$refresht
-          t <- isolate(as.character(input$titlet))
+          #input$refresht
+          t <- as.character(input$titlet)
           t
         })
         
         xlt <- reactive({
-          input$refresht
+          #input$refresht
           if (cxt()==dt()) {
             xl <- as.character(colnames(testdata()[cxt()]))  
           }
           else {
-            xl <- isolate(paste(as.character(colnames(testdata()[cxt()]))," (",as.character(input$units2xt),")"))
+            xl <- paste(as.character(colnames(testdata()[cxt()]))," (",as.character(input$units2xt),")")
           }
           xl  
           
         })
         
         ylt <- reactive({
-          input$refresht
-          yl <- isolate(paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$units2yt),")"))
+          #input$refresht
+          yl <- paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$units2yt),")")
         })
         
         if (input$tformat=="Wide"){
@@ -1527,31 +1696,31 @@ plotInputt <- function(){
       
       
       else if(input$ptype2t=="Line") { ### Bivariate: Line Graph
-        input$refresht
+        #input$refresht
         
         
         
         titlet <- reactive({
-          input$refresht
-          t <- isolate(as.character(input$titlet))
+          #input$refresht
+          t <- as.character(input$titlet)
           t
         })
         
         xlt <- reactive({
-          input$refresht
+          #input$refresht
           if (cxt()==dt()) {
             xl <- as.character(colnames(testdata()[cxt()]))  
           }
           else {
-            xl <- isolate(paste(as.character(colnames(testdata()[cxt()]))," (",as.character(input$units2xt),")"))
+            xl <- paste(as.character(colnames(testdata()[cxt()]))," (",as.character(input$units2xt),")")
           }
           xl  
           
         })
         
         ylt <- reactive({
-          input$refresht
-          yl <- isolate(paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$units2yt),")"))
+          #input$refresht
+          yl <- paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$units2yt),")")
         })
         
         
@@ -1587,27 +1756,27 @@ plotInputt <- function(){
       }
       
       else if(input$ptype2t=="Discrete Box Plot"){ ############ Bivariate: Discrete Box Plot
-        input$refresht
+        #input$refresht
         
         #validate(
           #need(class(testdatadft()[,cxt()])=="character"|class(testdatadft()[,cxt()])=="factor","Please select a discrete variable")
         #)
         
         titlet <- reactive({
-          input$refresht
-          t <- isolate(as.character(input$titlet))
+          #input$refresht
+          t <- as.character(input$titlet)
           t
         })
         
         xlt <- reactive({
-          input$refresht
-          xl <- isolate(paste(as.character(colnames(testdata()[cxt()]))," (",as.character(input$units2xt),")"))
+          #input$refresht
+          xl <- paste(as.character(colnames(testdata()[cxt()]))," (",as.character(input$units2xt),")")
           xl
         })
         
         ylt <- reactive({
-          input$refresht
-          yl <- isolate(paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$units2yt),")"))
+          #input$refresht
+          yl <- paste(as.character(colnames(testdata()[cyt()]))," (",as.character(input$units2yt),")")
         })
         
         
@@ -1642,7 +1811,7 @@ plotInputt <- function(){
         
       }
       
-    ) ## end of isolate function for bivariate operations
+   #) ## end of isolate function for bivariate operations
   } ## end of if/else options for bivariate visualization
   
   
@@ -1655,7 +1824,7 @@ plotInputt <- function(){
 output$sumpar <- renderUI({
   req(input$rconfirm)
   if (input$rformat=="Wide"){
-    choices=colnames(refdata2())
+    choices=input$rparsW
   }
   else if (input$rformat=="Long"){
     choices=unique(refdata2()[,p()])
@@ -1674,7 +1843,7 @@ output$sumselsite <- renderUI({
 ## Get column indice of parameter
 
 spc <- reactive({
-  req(input$rf,input$rformat=="Wide")
+  req(input$rconfirm,input$rformat=="Wide")
   sp <- which(colnames(refdata2())==input$sumpar)
   sp
 })
@@ -1693,6 +1862,7 @@ rdd <- reactive({
   rdd
   
 })
+
 
 ## Boxplot Graph
 
@@ -1797,6 +1967,50 @@ output$downyboxp <- downloadHandler(
   content = function(file) {
     ggsave(file, plot = yearpl(), device = "png")
   })
+
+output$Statsreport <- downloadHandler(
+  # For PDF output, change this to "report.pdf"
+  filename = function(){
+    paste0("output", ".zip")
+  },
+  content = function(file) {
+    src <- normalizePath('StatsTemplate.Rmd')
+    owd <- setwd(tempdir())
+    on.exit(setwd(owd))
+    file.copy(src, 'StatsTemplate.Rmd', overwrite = TRUE)
+    fs <- c()
+    sitesforanalysis <- unique(stringr::str_trim(refdata2()[,s()]))
+    length <- length(sitesforanalysis)
+    dfMain<- refdata2()
+    dfMain[,s()] <- stringr::str_trim(refdata2()[,s()])
+    dfMain$Month <- as.factor(month(dfMain[,d()],label=TRUE))
+    dfMain$Year <- as.factor(year(dfMain[,d()]))
+    
+    
+    for (i in 1:length){
+      withProgress(message = paste("Preparing report",i,"of",length," - please wait!"),{  
+        df <- subset(dfMain,dfMain[,s()]== sitesforanalysis[i])
+        rm(params)
+        path <- paste0(sitesforanalysis[i],".pdf")
+        path <- gsub("/","_", path)
+        if (input$rformat=="Long"){
+          params <- list(data = data.frame(df), siteCol = s(), dateCol = d(),varsCol=input$rpars, dataFormat = input$rformat,Sites=input$rsid,sumpar = input$sumpar,valuecol = input$rvals,rendered_by_shiny=TRUE)
+        }
+        if (input$rformat == "Wide"){
+          params <- list(data = data.frame(df), siteCol = s(), dateCol = d(),varsCol=input$rparsW, dataFormat = input$rformat,Sites=input$rsid,sumpar= input$sumpar, rendered_by_shiny=TRUE)
+          
+        }
+        rmarkdown::render("StatsTemplate.rmd", rmarkdown::pdf_document(), output_file = path,params = params,envir = new.env())
+        fs <- c(fs, path)
+        
+        
+        zip(file,fs)
+      }) # end of withProgress
+    }
+    contentType = "application/zip"
+  }
+)
+
 ########################################################### Tab 2
 
 ## Select Site(s) of Interest, Tab 2
@@ -1834,7 +2048,7 @@ rdd2 <- reactive({
 ## Get parameter of interest column indice, Tab 2
 
 spc2 <- reactive({
-  req(input$rf)
+  req(input$rconfirm)
   sp <- which(colnames(refdata2())==input$sumpar2)
   sp
 })
@@ -1892,7 +2106,7 @@ output$swl <- renderPrint({
 output$sumpart <- renderUI({
   req(input$tconfirm)
   if (input$tformat=="Wide"){
-    choices=colnames(testdata2())
+    choices=input$tparsW
   }
   else if (input$tformat=="Long"){
     choices = unique(testdata2()[,pt()])
@@ -1913,7 +2127,7 @@ output$sumselsitet <- renderUI({
 ## Get column indice
 
 spct <- reactive({
-  req(input$tf, input$tformat=="Wide")
+  req(input$tconfirm, input$tformat=="Wide")
   sp <- which(colnames(testdata2())==input$sumpart)
   sp
 })
@@ -1934,7 +2148,7 @@ rddt <- reactive({
 })
   
 boxplt <- function(){
-  req(input$tf,input$sumpart)
+  req(input$tconfirm,input$sumpart)
   if (input$tformat=="Wide"){
     validate(
       need(class(testdata2()[,spct()])=="numeric", "Please select a numeric variable")
@@ -1955,7 +2169,7 @@ output$boxpt <- renderPlot({
 
 
 output$sumt <- renderPrint({
-  req(input$tf,input$sumpart)
+  req(input$tconfirm,input$sumpart)
   if (input$tformat=="Wide"){
   validate(
     need(class(testdata2()[,spct()])=="numeric", "Please select a numeric variable")
@@ -1973,7 +2187,7 @@ output$sumt <- renderPrint({
 
 
 monthplt<- function(){
-  req(input$tf,input$sumpart)
+  req(input$tconfirm,input$sumpart)
   if (input$tformat=="Wide"){
   validate(
     need(class(testdata2()[,spct()])=="numeric", "Please select a numeric variable")
@@ -2023,12 +2237,54 @@ output$yboxpt <- renderPlot({
   print(yearplt())
 })
 
-### Download Handler
-output$downyboxpt <- downloadHandler(
-  filename = "yplottest.png",
+# Download Handler
+output$downyboxp <- downloadHandler(
+  filename = "yplotref.png",
   content = function(file) {
-    ggsave(file, plot = yearplt(), device = "png")
+    ggsave(file, plot = yearpl(), device = "png")
   })
+
+output$StatsreportT <- downloadHandler(
+  filename = function(){
+    paste0("output", ".zip")
+  },
+  content = function(file) {
+    src <- normalizePath('StatsTemplate.Rmd')
+    owd <- setwd(tempdir())
+    on.exit(setwd(owd))
+    file.copy(src, 'StatsTemplate.Rmd', overwrite = TRUE)
+    fs <- c()
+    sitesforanalysis <- unique(stringr::str_trim(testdata2()[,st()]))
+    length <- length(sitesforanalysis)
+    dfMain<- testdata2()
+    dfMain[,st()] <- stringr::str_trim(testdata2()[,st()])
+    dfMain$Month <- as.factor(month(dfMain[,dt()],label=TRUE))
+    dfMain$Year <- as.factor(year(dfMain[,dt()]))
+    
+    
+    for (i in 1:length){
+      withProgress(message = paste("Preparing report",i,"of",length," - please wait!"),{  
+        df <- subset(dfMain,dfMain[,st()]== sitesforanalysis[i])
+        rm(params)
+        path <- paste0(sitesforanalysis[i],".pdf")
+        path <- gsub("/","_", path)
+        if (input$tformat=="Long"){
+          params <- list(data = data.frame(df), siteCol = st(), dateCol = dt(),varsCol=input$tpars, dataFormat = input$tformat,Sites=input$tsid,sumpar = input$sumpart,valuecol = input$tvals,rendered_by_shiny=TRUE)
+        }
+        if (input$tformat == "Wide"){
+          params <- list(data = data.frame(df), siteCol = st(), dateCol = dt(),varsCol=input$tparsW, dataFormat = input$tformat,Sites=input$tsid,sumpar= input$sumpart, rendered_by_shiny=TRUE)
+          
+        }
+        rmarkdown::render("StatsTemplate.rmd", rmarkdown::pdf_document(), output_file = path,params = params,envir = new.env())
+        fs <- c(fs, path)
+        
+        
+        zip(file,fs)
+      }) # end of withProgress
+    }
+    contentType = "application/zip"
+  }
+)
 
 ################## Statistics Tab 2 ###### Test Dataset #######
 
@@ -2054,7 +2310,7 @@ output$sumpar2t <- renderUI({
 ## Get parameter of interest column indice
 
 spc2t <- reactive({
-  req(input$rt, input$tformat=="Wide")
+  req(input$tconfirm, input$tformat=="Wide")
   sp <- which(colnames(testdata2())==input$sumpar2t)
   sp
 })
@@ -2138,6 +2394,10 @@ output$singrpR <- renderUI({
   radioButtons("singrpr","Select single-site summary (A), complete dataset summary (B), or summary by group (C) ",choices=list("A","B","C"))
 })
 
+output$MonthYear <- renderUI({
+  radioButtons("monthyear", "Select summary style", choices = list("By Month","By Year"))
+})
+
 ## If single is selected
 output$sitesR <- renderUI({
   selectInput("sitesr","Please select a monitoring site",choices=unique(refdata2()[,s()]))
@@ -2145,13 +2405,12 @@ output$sitesR <- renderUI({
 
 ## If group is selected, prompt for column
 output$gcR <- renderUI({
-  selectInput("gcr","Select group column",choices=colnames(refdata2()))
+  selectInput("gcr","Select group column",choices=colnames(refdata2()),selected=refdata2()[,s()])
 })
 
 ## get group column indice
 gr<- reactive({
-  input$refresh2
-  gr <- isolate(which(colnames(refdata2())==input$gcr))  
+  gr <- which(colnames(refdata2())==input$gcr)  
 })
 
 ## Select group for viewing
@@ -2173,34 +2432,87 @@ output$tcPr <- renderPlot({
 
 ## Create main output graph for temporal coverage
 tcPr <- function(){
-  
-  input$refresh2
-  if (input$refresh2 == 0)
-    return()
-  
-  isolate(
-  
   if (input$singrpr=="A") {
   sub <- subset(tcsr(),tcsr()[,s()]==input$sitesr)
   sub$Month <- factor(month.name[sub$Month], levels=month.name[1:12])
-  ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Month - ",input$sitesr))
+  if (input$monthyear == "By Month"){
+    ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Month - ",input$sitesr))
   }
+  else if (input$monthyear == "By Year"){
+    ggplot(data = sub, aes(x = Year)) + geom_bar(aes(fill=Month)) + theme_bw() + xlab("Year") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Year - ",input$sitesr)) 
+  }
+    }
   
   else if (input$singrpr=="B") {
     sub <- tcsr()
     sub$Month <- factor(month.name[sub$Month], levels=month.name[1:12])
-    ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle("Observation Counts by Month - All Observations")
-  }
+    
+    if (input$monthyear == "By Month"){
+      ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle("Observation Counts by Month - All Observations")
+    }
+    
+    else if (input$monthyear == "By Year"){
+      ggplot(data = sub, aes(x = Year)) + geom_bar(aes(fill=Month)) + theme_bw() + xlab("Year") + ylab("Number of Observations") + ggtitle("Observation Counts by Year - All Observations")  
+    }
+      }
   
   else {
     sub <- tcsr()
     sub$Month <- factor(month.name[sub$Month], levels=month.name[1:12])
     sub <- subset(sub,sub[,gr()]==input$gsr)
-    ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Month - ",input$gsr))
-  }
-  )
+    
+    if (input$monthyear == "By Month"){
+      ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Month - ",input$gsr))
+    }
+    else if (input$monthyear == "By Year"){
+      ggplot(data = sub, aes(x = Year)) + geom_bar(aes(fill=Month)) + theme_bw() + xlab("Year") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Year - ",input$gsr))
+    }
+      }
+  
   
 }
+
+
+##### Report Generation: Temporal Coverage Summary
+
+output$TCSreport <- downloadHandler(
+  # For PDF output, change this to "report.pdf"
+  filename = function(){
+    paste0("output", ".zip")
+  },
+  content = function(file) {
+    src <- normalizePath('TCStemplate.Rmd')
+    owd <- setwd(tempdir())
+    on.exit(setwd(owd))
+    file.copy(src, 'TCStemplate.Rmd', overwrite = TRUE)
+      fs <- c()
+      sitesforanalysis <- unique(stringr::str_trim(refdata2()[,s()]))
+      length <- length(sitesforanalysis)
+      
+    
+      for (i in 1:length){
+        withProgress(message = paste("Preparing report",i,"of",length," - please wait!"),{  
+        tcsr <- subset(tcsr(),tcsr()[,s()]== sitesforanalysis[i])
+        rm(params)
+        path <- paste0(sitesforanalysis[i],".pdf")
+        path <- gsub("/","_", path)
+        if (input$rformat=="Long"){
+        params <- list(data = data.frame(tcsr), siteCol = s(), dateCol = d(),varsCol=input$rpars, dataFormat = input$rformat,Sites=input$rsid,rendered_by_shiny=TRUE)
+        }
+        if (input$rformat == "Wide"){
+        params <- list(data = data.frame(tcsr), siteCol = s(), dateCol = d(),varsCol=input$rparsW, dataFormat = input$rformat,Sites=input$rsid,rendered_by_shiny=TRUE)
+          
+        }
+      rmarkdown::render("TCStemplate.rmd", rmarkdown::pdf_document(), output_file = path,params = params,envir = new.env())
+      fs <- c(fs, path)
+      
+    zip(file,fs)
+    }) # end of withProgress
+      }
+    contentType = "application/zip"
+  }
+)
+
 
 ############################################# Temporal Coverage Summary: Test Data ##################
 
@@ -2223,6 +2535,10 @@ output$singrpRt <- renderUI({
   radioButtons("singrprt","Select single-site summary (A), complete dataset summary (B), or summary by group (C) ",choices=list("A","B","C"))
 })
 
+output$MonthYearT <- renderUI({
+  radioButtons("monthyearT", "Select summary style", choices = list("By Month","By Year"))
+})
+
 ## If single is selected
 output$sitesRt <- renderUI({
   selectInput("sitesrt","Please select a monitoring site",choices=unique(testdata2()[,st()]))
@@ -2235,8 +2551,7 @@ output$gcRt <- renderUI({
 
 ## get group column indice
 grt<- reactive({
-  input$refresh3
-  grt <- isolate(which(colnames(testdata2())==input$gcrt))  
+  grt <- which(colnames(testdata2())==input$gcrt)  
 })
 
 ## Select group for viewing
@@ -2257,35 +2572,91 @@ output$tcPrt <- renderPlot({
 })
 
 ## Create main output graph for temporal coverage
-tcPrt <- function(){
-  
-  input$refresh3
-  if (input$refresh3 == 0)
-    return()
-  
-  isolate(
-    
+tcPrt <- function(){  
     if (input$singrprt=="A") {
       sub <- subset(tcsrt(),tcsrt()[,st()]==input$sitesrt)
       sub$Month <- factor(month.name[sub$Month], levels=month.name[1:12])
+      if (input$monthyearT == "By Month"){
+      
       ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Month - ",input$sitesrt))
-    }
+      }
+      else if (input$monthyearT == "By Year"){
+        ggplot(data = sub, aes(x = Year)) + geom_bar(aes(fill=Month)) + theme_bw() + xlab("Year") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Year - ",input$sitesrt)) 
+      }
+        }
     
     else if (input$singrprt=="B") {
       sub <- tcsrt()
       sub$Month <- factor(month.name[sub$Month], levels=month.name[1:12])
+      
+      if (input$monthyearT == "By Month"){
       ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle("Observation Counts by Month - All Observations")
-    }
+      }
+      else if (input$monthyearT == "By Year"){
+        ggplot(data = sub, aes(x = Year)) + geom_bar(aes(fill=Month)) + theme_bw() + xlab("Year") + ylab("Number of Observations") + ggtitle("Observation Counts by Year - All Observations")  
+      }
+      
+      }
     
     else {
       sub <- tcsrt()
       sub$Month <- factor(month.name[sub$Month], levels=month.name[1:12])
       sub <- subset(sub,sub[,grt()]==input$gsrt)
+      
+      if(input$monthyearT == "By Month"){
+      
       ggplot(data = sub, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Month - ",input$gsrt))
-    }
-  )
+      }
+      
+      else if (input$monthyearT == "By Year"){
+        ggplot(data = sub, aes(x = Year)) + geom_bar(aes(fill=Month)) + theme_bw() + xlab("Year") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Year - ",input$gsrt))
+      }
+         }
+  
   
 }
+
+### Report Generation: Temporal Coverage Summary (Test)
+output$TCSreportT <- downloadHandler(
+  # For PDF output, change this to "report.pdf"
+  filename = function(){
+    paste0("output", ".zip")
+  },
+  content = function(file) {
+    
+    
+    #tempReport <- file.path(tempdir(), "TCStemplate.Rmd")
+    #file.copy("TCStemplate.Rmd", tempReport, overwrite = TRUE)
+    
+    # Set up parameters to pass to Rmd document
+    #params <- list(data = data.frame(tcsr()), siteCol = s(), dateCol = d(),varsCol=input$rpars, dataFormat = input$rformat,Sites=input$rsid,rendered_by_shiny=TRUE)
+    fs <- c()
+    sitesforanalysis <- unique(stringr::str_trim(testdata2()[,st()]))
+    length <- length(sitesforanalysis)
+    
+    
+    for (i in 1:length){
+      withProgress(message = paste("Preparing report",i,"of",length," - please wait!"),{  
+        tcsrt <- subset(tcsrt(),tcsrt()[,st()]== sitesforanalysis[i])
+        rm(params)
+        path <- paste0(sitesforanalysis[i],".pdf")
+        path <- gsub("/","_", path)
+        if (input$rformat=="Long"){
+          params <- list(data = data.frame(tcsrt), siteCol = st(), dateCol = dt(),varsCol=input$tpars, dataFormat = input$tformat,Sites=input$tsid,rendered_by_shiny=TRUE)
+        }
+        if (input$rformat == "Wide"){
+          params <- list(data = data.frame(tcsrt), siteCol = st(), dateCol = dt(),varsCol=input$tparsW, dataFormat = input$tformat,Sites=input$tsid,rendered_by_shiny=TRUE)
+          
+        }
+        rmarkdown::render("TCStemplate.rmd", rmarkdown::pdf_document(), output_file = path,params = params,envir = new.env())
+        fs <- c(fs, path)
+        
+        zip(file,fs)
+      }) # end of withProgress
+    }
+    contentType = "application/zip"
+  }
+)
 
 
 
@@ -2457,10 +2828,11 @@ rsite <- reactive({
 
 ## Select a parameter from the reference dataset
 output$refp <- renderUI({
+  validate (
+    need(input$buffer != "","")
+  )
   if (input$rformat=="Wide"){
-    validate (
-      need(input$buffer != "","")
-    )
+    
    choices = colnames(refdata()) 
   }
   else{
@@ -2490,7 +2862,7 @@ output$tesp <- renderUI({
 ####### Reference ########
 referencedt <- reactive({
   
-  req(input$rf,input$rconfirm,input$spair)
+  req(input$rconfirm,input$spair)
   
   referencedt <- refdata2()
   referencedt <- subset(referencedt, referencedt[,s()]==pairs()[input$spair,1])
@@ -2520,7 +2892,7 @@ referencedt <- reactive({
 
 testdt <- reactive({
   
-  req(input$tf,input$tconfirm,input$tesp)
+  req(input$tconfirm,input$tesp)
   
   testdt <- testdata2()
   testdt <- subset(testdt, testdt[,st()]==tsite())
@@ -2691,42 +3063,6 @@ output$combplot <- renderPlot({
     plot <- isolate(plot + ggtitle(paste(input$month,",",input$testyear,"Test Data -",input$tesp,"Against Reference Baseline")))
     plot
 })
-})
-
-########################### CCME WQI CALCULATION TESTING ######################
-
-output$alk <- renderUI({
-  req(input$rformat,input$rconfirm)
-  if (input$rformat=="Wide"){
-    choices=colnames(refdata2())
-  }
-  else if (input$rformat=="Long"){
-    choices=unique(refdata2()[,p()])
-  }
-  selectInput("alk","Which colomn or parameter represents water hardness (Alkalinity), expressed as CaCO3 in mg/L?",choices=choices,multiple=F)
-})
-
-alkc <- reactive({
-  alkc <- which(colnames(refdata2())==input$alk)
-})
-
-output$ips <- renderUI({
-  req(input$rformat,input$rconfirm)
-  if (input$rformat=="Wide"){
-    choices=colnames(refdata2())
-  }
-  else if (input$rformat=="Long"){
-    choices=unique(refdata2()[,p()])
-  }
-  
-  selectInput("ips","Select 8-20 water quality parameters to use",choices=choices,multiple=T)
-  
-})
-
-
-output$imap <- renderLeaflet({
-  leaflet(data=refdata2()) %>%
-    addMarkers(lng=~as.numeric(refdata2()[,x()]),lat=~as.numeric(refdata2()[,y()]),popup = ~as.character(refdata2()[,s()]))
 })
 
 

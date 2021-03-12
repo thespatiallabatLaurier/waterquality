@@ -1,0 +1,75 @@
+---
+title: ""
+output: pdf_document
+params:
+  data: NA
+  siteCol: NA
+  dateCol: NA
+  varsCol: NA
+  dataFormat: NA
+  Sites: NA
+  rendered_by_shiny: FALSE
+---
+```{r eval=TRUE,echo=FALSE,warning=FALSE}
+df <- params$data
+df$Month <- factor(month.name[df$Month], levels=month.name[1:12])
+s <- params$siteCol
+d <- params$dateCol
+dform <- params$dataFormat
+v <- params$varsCol
+if (dform == "Wide"){
+  vcols <- which(colnames(df)%in% v)
+}
+mcol <- which(colnames(df)== "Month")
+ycol <- which(colnames(df)== "Year")
+site <- unique(df[,s])[1]
+
+```
+# Temporal Coverage Summary Report: `r site `
+
+```{r eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,error=FALSE}
+ggplot(data = df, aes(x = Month)) + geom_bar(aes(fill=Year)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Month"))
+```
+
+```{r eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,error=FALSE}
+ggplot(data = df, aes(x = Year)) + geom_bar(aes(fill=Month)) + theme_bw() + xlab("Month") + ylab("Number of Observations") + ggtitle(paste("Observation Counts by Year"))
+```
+
+```{r eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,error=FALSE}
+library(dplyr)
+
+if (dform == "Wide"){
+  new <- df
+  new <- new[,c(ycol,mcol,vcols)]
+  new <- new %>% group_by(Year) %>% dplyr::summarise(Count = dplyr::n())
+
+}
+if (dform =="Long")
+{
+  groups <- c("Year",v)
+ new <- df %>% group_by_at(groups) %>% dplyr::summarise(n = dplyr::n())
+ 
+}
+knitr::kable(new, caption="Observation Counts")
+```
+
+
+```{r,echo=FALSE}
+if (params$rendered_by_shiny)
+  shiny::setProgress(0.5)  # set progress to 50%
+```
+
+
+
+```{r,echo=FALSE}
+if (params$rendered_by_shiny)
+  shiny::setProgress(0.75)  # set progress to 75%
+```
+
+
+
+
+```{r,echo=FALSE}
+if (params$rendered_by_shiny)
+  shiny::setProgress(1)  # set progress to 100%
+```

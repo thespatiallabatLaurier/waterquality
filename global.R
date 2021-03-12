@@ -1,9 +1,11 @@
 library(stringdist)
 library(dplyr)
 library(base)
+library(shinycssloaders)
+library(shinyalert)
 #guidelines <- read.csv("Guidelines.csv",stringsAsFactors=F,header=T)
-longitude <- c("longitude","Longitude","x","X","MonitoringLocationLongitude")
-latitude <- c("latitude","Latitude","y","Y","MonitoringLocationLatitude")
+longitude <- c("LONGITUDE","Longitude","longitude","x","X","MonitoringLocationLongitude")
+latitude <- c("LATITUDE","Latitude","latitude","y","Y","MonitoringLocationLatitude")
 date <- c("Date","date","Datetime","ActivityStartDate","DATE_TIME_HEURE","Date_Time")
 site <- c("MonitoringLocationName","Site_Code","Site_Name","Location_Name","Site","Station","Location")
 parameters <- c("CharacteristicName","ParameterName","VARIABLE","Variable","Parameter_Name","VARIABLE_NAME","Variable_Name")
@@ -49,6 +51,7 @@ gdc <- function(data){
   return(dacol)
 }
 
+
 gsc <- function(data){
   prevn <- data.frame(stringsim(names(data),site[1]))
   for (i in 2:length(site)){
@@ -87,44 +90,6 @@ grc <- function(data){
   rcol <- as.integer(which.max(prevp[,1]))
   return(rcol)
 }
-# 
-# ccme1 <- function(poi){
-#   #pmatch(poi,guidepars,duplicates.ok=TRUE)
-#   out <- stringsim(poi,guidepars)
-#   m <- which.max(out)
-#   return(m)
-# }
-# 
-# 
-# getGuideM <- function(poi,dp,df,fi,d,v,a,ph ){
-#   
-#   gdf2i <- data.frame(subset(gdf,gdf$Name==poi))
-#   goTo <- as.integer(gdf2i[1,2])
-#   
-#   
-#   if (goTo==3){ ## Upper limit only avaliable
-#     value1 <- as.numeric(gdf2i[1,3])
-#     value2 <- NA
-#     
-#   }
-#   
-#   if (goTo==4){ ## Lower Limit only avaliable
-#     value1 <- as.numeric(gdf2i[1,4])
-#     value2 <- NA
-#   }
-#   
-#   if (goTo==5) { ## Upper and Lower limit avaliable, in columns 6 and 7 respectively
-#     value1 <- as.numeric(gdf2i[1,6])
-#     value2 <- as.numeric(gdf2i[1,7])
-#   }
-#   
-#   list <- list(goTo = "goTo",value1="value1", value2="value2")
-#   return(list)
-# }
-
-
-
-#conditionalPars <- list("CADMIUM_TOTAL_ugL_ST","CADMIUM_TOTAL_ugL_LT")
 
 
 
@@ -172,8 +137,12 @@ css<- HTML("
            
            ")
 
-
-
+##testing
+# setwd("C:/Users/Annie/Desktop")
+# Rfinal <- read.csv("RefData.csv",header = FALSE)
+# Tfinal <- read.csv("TestData.csv",header=FALSE)
+# colr <- 1
+# colt <- 1
 psctest <- function(Rfinal,colr,Tfinal,colt){
   Rfinal <- Rfinal
   Tfinal <- Tfinal
@@ -192,7 +161,8 @@ psctest <- function(Rfinal,colr,Tfinal,colt){
     Diff <- xbarT - xbarR
     Es <- Diff/sdP ## in standard deviations, this is the critical effect size
     Fobs <- Diff^2/seP^2
-    ncp <- (-1*xbarR/sdP+1*xbarT/sdP)^2/(1/nR+1/nT)
+    #ncp <- (-1*xbarR/sdP+1*xbarT/sdP)^2/(1/nR+1/nT)
+    ncp <- (((-1*0)/1)+((1*2)/1))^2/((-1)^2/nR+1^2/nT)
   }
   
   else {
@@ -205,12 +175,17 @@ psctest <- function(Rfinal,colr,Tfinal,colt){
   df1 <- 1
   df2 <- nR + nT - 2
   
-  Fc <- qf(0.05,df1,df2,log=FALSE,lower.tail = FALSE) 
-  Feq <- qf(0.05,df1,df2,ncp=ncp) ## This is correct when I use the ncp from the excel examples, so the function is right at least
-  Fint <- qf(0.95,df1,df2,ncp=ncp) ## This is correct when I use the ncp from the excel examples, so the function is right, at least
+  Fc <- qf(0.05,df1,df2,log=FALSE,lower.tail = FALSE) ## critical central Fc
+  #Feq <- qf(0.05,df1,df2,ncp=ncp) ## This is correct when I use the ncp from the excel examples, so the function is right at least
+  #Fint <- qf(0.95,df1,df2,ncp=ncp) ## This is correct when I use the ncp from the excel examples, so the function is right, at least
   
-  ## lower.tail = FALSE : P[X > x] aka 1-CDF aka FINV in Excel...?????? :c
-  ## If Fobs > Fc, indicates that difference in var is significantly different from 0
+  ## The
+  ##observed F ratio (23.1) for this 2-sample case was greater than
+  ##the critical central Fc (4.41), indicating that the difference in %
+  ##EPT from reference and exposure reaches in 2011 was
+  ##significantly different from zero 
+  
+  
   
   if (Fobs > Fc){
     a <- "The difference between the test and reference datasets is siginificantly different from 0. This means that the datasets do not likely have the same mean."
@@ -219,17 +194,24 @@ psctest <- function(Rfinal,colr,Tfinal,colt){
     a <- "The difference between the test and reference means is not significanctly different from 0. It is very likely that the datasets have the same mean."
   }
   
-  if (Fobs < Feq & Fobs < Fint){
+  ####### Now for the normal range stuff - the previous lines established if there is a significant difference, now we find out how much
+  
+  ncp2 <- (-1*0/1+1*1.645/1)^2/(1/nR+1/nT)
+  Feq2 <- qf(0.05,df1,df2,ncp=ncp2) ## This is correct when I use the ncp from the excel examples, so the function is right at least
+  Fint2 <- qf(0.95,df1,df2,ncp=ncp2) ## This is correct when I use the ncp from the excel examples, so the function is right, at least
+  
+  
+  if (Fobs < Feq2 & Fobs < Fint2){
     b <- "The test data likely falls within the normal range of the reference data."
   }
-  else if (dplyr::between(Fobs,Feq,Fint)){
+   if (dplyr::between(Fobs,Feq2,Fint2)){
     b <- "The test data could be near the edge of the normal range of the reference data, but it likely falls within the normal range of the reference data."
   }
-  else if(Fobs > Feq & Fobs > Fint){
+  if(Fobs > Feq2 & Fobs > Fint2){
     b <- "The test data is likely outside of the normal range of the reference data."
   }
   
-  text <- paste(b,"Look at the graph below to see the data being compared. Remember that, for this test to work, the variables and units MUST MATCH.")
+  text <- paste(a,b,"Look at the graph below to see the data being compared. Remember that, for this test to work, the variables and units MUST MATCH.")
   
   return(text)
   

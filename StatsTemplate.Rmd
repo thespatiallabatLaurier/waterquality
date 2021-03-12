@@ -1,0 +1,121 @@
+---
+title: ""
+output: pdf_document
+params:
+  data: NA
+  siteCol: NA
+  dateCol: NA
+  varsCol: NA
+  dataFormat: NA
+  Sites: NA
+  sumpar: NA
+  valuecol: NA
+  rendered_by_shiny: FALSE
+---
+---
+```{r eval=TRUE,echo=FALSE,warning=FALSE}
+df <- params$data
+s <- params$siteCol
+d <- params$dateCol
+dform <- params$dataFormat
+v <- params$sumpar
+if (dform == "Wide"){
+  vcol <- which(colnames(df)== v)
+}
+if (dform == "Long"){
+  valscol <- which(colnames(df)==params$valuecol)
+  varscol <- which(colnames(df)== params$varsCol)
+  df <- subset(df,df[,varscol] == v)
+}
+mcol <- which(colnames(df)== "Month")
+ycol <- which(colnames(df)== "Year")
+site <- unique(df[,s])[1]
+
+```
+# Parameter Report for `r site `: `r params$sumpar `
+
+```{r eval=TRUE,echo=FALSE,warning=FALSE,collapse=FALSE}
+if (dform == "Wide"){
+if ((nrow(df) - 2 > sum(is.na(df[,v])))){
+  n <- nrow(df) - sum(is.na(df[,v]))
+  twfth <- quantile(mean(df[,v]),c(0.25),na.rm = T)
+  min <- min(df[,v],na.rm = T)
+  mean <- mean(df[,v],na.rm = T)
+  median <- median(df[,v],na.rm = T)
+  svfth <- quantile(mean(df[,v]),c(0.75),na.rm = T)
+  max <- max(df[,v],na.rm = T)
+  na <- sum(is.na(df[,v]))
+  Table <- data.frame("Count" = n, "Minimum" = min,"Mean" = mean,"Median"= median, "Maximum" = max, "NAs" = na) %>% mutate_if(is.numeric, round, digits=2)
+  knitr::kable(Table, caption="Summary Statistics")
+  
+}}
+
+if (dform == "Long"){
+if ((nrow(df) - 2 > sum(is.na(df[,valscol])))){
+  n <- nrow(df) - sum(is.na(df[,valscol]))
+  twfth <- quantile(mean(df[,valscol]),c(0.25),na.rm = T)
+  min <- min(df[,valscol],na.rm = T)
+  mean <- mean(df[,valscol],na.rm = T)
+  median <- median(df[,valscol],na.rm = T)
+  svfth <- quantile(mean(df[,valscol]),c(0.75),na.rm = T)
+  max <- max(df[,valscol],na.rm = T)
+  na <- sum(is.na(df[,valscol]))
+  Table <- data.frame("Count" = n, "Minimum" = min,"Mean" = mean,"Median"= median, "Maximum" = max, "NAs" = na) %>% mutate_if(is.numeric, round, digits=2)
+  knitr::kable(Table, caption="Summary Statistics")
+  
+}}
+```
+```{r eval=TRUE,echo=FALSE,warning=FALSE,collapse=TRUE}
+if (dform == "Wide"){
+if ((nrow(df) - 2 > sum(is.na(df[,v])))){
+
+  
+    boxplot(df[,vcol],main=paste("All Observations"))
+  
+  
+}
+}
+if (dform == "Long"){
+  if ((nrow(df) - 2 > sum(is.na(df[,valscol])))){
+
+    boxplot(df[,valscol],main=paste("All Observations"))
+    
+  }
+}
+```
+```{r eval=TRUE,echo=FALSE,warning=FALSE,collapse=TRUE}
+if (dform == "Wide"){
+if ((nrow(df) - 2 > sum(is.na(df[,v])))){
+    
+    ggplot(data=df,aes(x=df$Month,y=df[,vcol])) + theme_bw() + ggtitle(paste("Monthly Observations - ",params$sumpar,", ",site)) +geom_boxplot() + theme(axis.text.x  = element_text(angle=90, vjust=0.5, size=10)) + xlab("Month") +ylab(params$sumpar)
+  
+  
+}
+}
+if (dform == "Long"){
+  if ((nrow(df) - 2 > sum(is.na(df[,valscol])))){
+
+        ggplot(data=df,aes(x=df$Month,y=df[,valscol])) + theme_bw() + ggtitle(paste("Monthly Observations - ",params$sumpar,", ",site)) +geom_boxplot() + theme(axis.text.x  = element_text(angle=90, vjust=0.5, size=10)) + xlab("Month") +ylab(params$sumpar)
+
+    
+  }
+}
+```
+```{r eval=TRUE,echo=FALSE,warning=FALSE,collapse=TRUE}
+if (dform == "Wide"){
+if ((nrow(df) - 2 > sum(is.na(df[,v])))){
+    
+    ggplot(data=df,aes(x=df$Year,y=df[,vcol])) + theme_bw() + ggtitle(paste("Yearly Observations - ",params$sumpar,", ",site)) +geom_boxplot() + theme(axis.text.x  = element_text(angle=90, vjust=0.5, size=10)) + xlab("Year") +ylab(params$sumpar)
+  
+  
+}
+}
+if (dform == "Long"){
+  if ((nrow(df) - 2 > sum(is.na(df[,valscol])))){
+
+        ggplot(data=df,aes(x=df$Year,y=df[,valscol])) + theme_bw() + ggtitle(paste("Yearly Observations - ",params$sumpar,", ",site)) +geom_boxplot() + theme(axis.text.x  = element_text(angle=90, vjust=0.5, size=10)) + xlab("Year") +ylab(params$sumpar)
+
+    
+  }
+}
+```
