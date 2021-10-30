@@ -20,7 +20,7 @@ navbarPage("CWDAT - The Community Water Data Analysis Tool",
            tabPanel(
              "About CWDAT",
              fluidPage(
-               h1("Welcome to the Community Water Data Analysis Tool",align="center",style = "font-size:500px;"),
+               h1("Welcome to the Community Water Data Analysis Tool",align="center",style = "font-size:50px;"),
                br(),
                hr(),
                br(),
@@ -29,14 +29,19 @@ navbarPage("CWDAT - The Community Water Data Analysis Tool",
                div("CWDAT is an interative web tool which visualizes,
                   summarizes, and generates reports from user-provided
                    water quality data. It was created using the
-                   R/Shiny platform.",style = "color:black"),
+                   R/Shiny platform. To learn more about CWDAT's
+                   design and development, check out this",tags$a(
+                     href="https://www.mdpi.com/2220-9964/10/4/207/htm",
+                  "paper",style = "color:blue",target="_blank"), "from the international
+               journal of Geo-Information.",style = "color:black"
+               ),
               br(),
                h3("Who can use CWDAT?"),
                
                div("Although this tool is intended for
                community-based water quality monitoring initiatives,
                anyone can use CWDAT for free to visualize their 
-                  water quality data",style = "color:black"),
+                  water quality data.",style = "color:black"),
                br(),
               h3("Why should I use CWDAT?"),
               div("CWDAT provides a medium for the
@@ -46,10 +51,15 @@ navbarPage("CWDAT - The Community Water Data Analysis Tool",
                  communicate your findings with your community if
                  you so choose.
                  CWDAT encourages transparency through the use of
-                 an open-source platform and by providing its source
-                 code to the public for free.",style = "color:black"),
+                 an open-source platform and by",
+                  tags$a(href="https://github.com/thespatiallabatLaurier/waterquality",
+                    "providing its source
+                 code",style = "color:blue",target="_blank"),
+                 "to the public for free.",style = "color:black"),
               br(),
               h3("How do I use CWDAT?"),
+              br(),
+              br(),
               fluidRow(
               column(6,
                 HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/413FuQUftaQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',align="center")
@@ -60,16 +70,16 @@ navbarPage("CWDAT - The Community Water Data Analysis Tool",
                   comma seperated data files, denoted by the extension '.csv'. Microsoft
                   Office Excel files can be easily converted into '.csv' files for use
                   in CWDAT. See below for some more details and requirements for your
-                  data in CWDAT:"
+                  data in CWDAT:",style = "color:black"
                 ),
                 div(
                   tags$ul(
                     tags$li("Your .csv file must include a seperate column for each
                             of the following attributes: site unique identifier; 
-                            latitude; longitude; and date"), 
+                            latitude; longitude; and date."), 
                     br(),
                     tags$li("Latitude and longitude values must be in decimal degrees
-                            using the WGS84 Gerographic Coordinate System. This ensures that,
+                            using the WGS84 Geographic Coordinate System. This ensures that,
                             no matter where in the world your data was collected, CWDAT can map
                             your monitoring locations."),
                     br(),
@@ -80,7 +90,7 @@ navbarPage("CWDAT - The Community Water Data Analysis Tool",
                     tags$li( "If you wish to explore CWDAT before
                     adding your own data, you may use CWDAT's built-in data 
                     files as shown in the instruction video. The built-in 'reference' and 'test'
-                    datasets are attributlable to their respective sources:"),
+                    datasets are attributable to their respective sources:"),
                     br(),
                     tags$li("Environment and Climate Change Canada (2016). Lower Mackenzie River Basin Long-term Water Quality Monitoring Data - Canada's North (dataset). 
                             Record ID 0177c195-13a8-4078-aa85-80b17e9e2cfe. Accessed from open.canada.ca. This dataset is made available under the Open Government License - Canada: 
@@ -113,7 +123,7 @@ navbarPage("CWDAT - The Community Water Data Analysis Tool",
                     international agreements. Material may not be used or reproduced for commercial purposes without the prior written consent 
                     arranged by the publisher of the material. If it is reproduced or redistributed for non-commercial purposes, copyright must be appropriately acknowledged."
                   )
-                  )
+                  ),style = "color:black"
                 )
               )
               )
